@@ -1,14 +1,14 @@
 
 import React from 'react';
 import GlassPanelEffect from './GlassPanelEffect';
-import Button from './Button';
-import { Clock, FileText, PhoneCall } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Clock, FileText, PhoneCall, Calculator } from 'lucide-react';
 
 const CTASection: React.FC = () => {
   return (
-    <section id="cta" className="section-padding relative overflow-hidden">
+    <section id="cta" className="section-padding relative overflow-hidden py-24">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-bunshodo-blue/20 to-bunshodo-green/20 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-bunshodo-blue/10 to-bunshodo-green/10 z-0"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <GlassPanelEffect
@@ -22,7 +22,7 @@ const CTASection: React.FC = () => {
             文唱堂の印刷物流サービスで、コスト削減、業務効率化、環境貢献を実現しませんか？
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             <div className="reveal" style={{ transitionDelay: '100ms' }}>
               <div className="bg-white/50 rounded-xl p-6 h-full flex flex-col items-center shadow-sm">
                 <div className="mb-4 p-3 bg-bunshodo-blue/10 rounded-full">
@@ -38,44 +38,32 @@ const CTASection: React.FC = () => {
             <div className="reveal" style={{ transitionDelay: '200ms' }}>
               <div className="bg-white/50 rounded-xl p-6 h-full flex flex-col items-center shadow-sm">
                 <div className="mb-4 p-3 bg-bunshodo-blue/10 rounded-full">
-                  <Clock className="h-6 w-6 text-bunshodo-blue" />
+                  <Calculator className="h-6 w-6 text-bunshodo-blue" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">30分以内にお見積もり</h3>
+                <h3 className="text-xl font-semibold mb-2">印刷物流コスト診断</h3>
                 <p className="text-bunshodo-medium-gray mb-4">
-                  スピーディーな対応で、すぐにコスト感をご確認いただけます。
-                </p>
-              </div>
-            </div>
-            
-            <div className="reveal" style={{ transitionDelay: '300ms' }}>
-              <div className="bg-white/50 rounded-xl p-6 h-full flex flex-col items-center shadow-sm">
-                <div className="mb-4 p-3 bg-bunshodo-blue/10 rounded-full">
-                  <FileText className="h-6 w-6 text-bunshodo-blue" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">資料請求</h3>
-                <p className="text-bunshodo-medium-gray mb-4">
-                  詳しいサービス内容や事例集をお送りします。
+                  現在のコストを分析し、最適な印刷・物流プランをご提案します。
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal" style={{ transitionDelay: '400ms' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal" style={{ transitionDelay: '300ms' }}>
             <Button 
               size="lg" 
-              className="shadow-lg"
+              className="bg-bunshodo-blue hover:bg-bunshodo-dark-blue text-white shadow-lg"
             >
               <PhoneCall className="h-5 w-5 mr-2" />
-              今すぐ無料相談
+              無料相談はこちら
             </Button>
             
             <Button 
               size="lg" 
               variant="outline"
-              className="shadow-sm"
+              className="border-bunshodo-blue text-bunshodo-blue hover:bg-bunshodo-blue/10 shadow-sm"
             >
-              <FileText className="h-5 w-5 mr-2" />
-              資料請求
+              <Calculator className="h-5 w-5 mr-2" />
+              印刷物流コスト診断
             </Button>
           </div>
         </GlassPanelEffect>
