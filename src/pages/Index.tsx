@@ -8,6 +8,7 @@ import CaseStudiesSection from '@/components/CaseStudiesSection';
 import ProcessSection from '@/components/ProcessSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import { Toaster } from 'sonner';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -44,6 +45,7 @@ const Index: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+      <Toaster position="top-center" />
       <Navbar />
       <Hero />
       <ProblemSection />

@@ -28,68 +28,77 @@ const ProblemSection: React.FC = () => {
     };
   }, []);
   
-  const problems = [
-    {
-      icon: <DollarSign className="h-7 w-7" />,
-      title: 'まとめて1社に頼むことでコストダウンしたい',
-      description: '複数の業者への発注では中間マージンが発生し、コストがかさみます。'
-    },
-    {
-      icon: <Clock className="h-7 w-7" />,
-      title: '各工程ごとの発注業務やスケジュール管理が煩雑',
-      description: '印刷会社と物流会社との間の調整に時間と労力が取られていませんか？'
-    },
-    {
-      icon: <HelpCircle className="h-7 w-7" />,
-      title: '早く納品してもらいたいが、品質が不安',
-      description: '納期を優先すると品質が犠牲になることが多く、両立が難しいと感じていませんか？'
-    },
-    {
-      icon: <Package className="h-7 w-7" />,
-      title: '仕分け、梱包、発送に人手が取られる',
-      description: '専任者を雇うほどでもなく、本来の業務に集中できていない状況ではありませんか？'
-    },
-    {
-      icon: <Building className="h-7 w-7" />,
-      title: '場所を取っている在庫をどこかに預けたい',
-      description: 'オフィスや倉庫のスペースと管理費を節約したいとお考えではありませんか？'
-    },
-    {
-      icon: <Recycle className="h-7 w-7" />,
-      title: '環境に配慮したサプライチェーンを構築したい',
-      description: 'SDGsへの取り組みを推進し、企業イメージの向上を図りたいと考えていませんか？'
-    },
-    {
-      icon: <Palette className="h-7 w-7" />,
-      title: 'デザイン修正の繰り返しで時間とコストがかかる',
-      description: '何度も修正を重ねるうちに予算オーバーや納期遅延が発生していませんか？'
-    },
-    {
-      icon: <TrendingUp className="h-7 w-7" />,
-      title: '繁忙期の配送キャパが足りず機会損失がある',
-      description: '需要ピーク時に配送能力が追いつかず、販売機会を逃していませんか？'
-    },
-    {
-      icon: <FileText className="h-7 w-7" />,
-      title: 'パーソナライズド印刷への対応が難しい',
-      description: '顧客ごとにカスタマイズされた印刷物の需要に対応できていますか？'
-    },
-    {
-      icon: <BarChart className="h-7 w-7" />,
-      title: '在庫精度が低く、余剰在庫や欠品が発生する',
-      description: '在庫管理の不正確さによる機会損失やコスト増加に悩んでいませんか？'
-    },
-    {
-      icon: <Network className="h-7 w-7" />,
-      title: '複雑な配送先管理に手間がかかりすぎる',
-      description: '多数の配送先や特殊な配送条件の管理に多くのリソースを割いていませんか？'
-    },
-    {
-      icon: <Users className="h-7 w-7" />,
-      title: '物流人材の確保と教育が追いつかない',
-      description: '人手不足や高齢化により、物流業務の品質維持が難しくなっていませんか？'
-    }
-  ];
+  // 問題点をカテゴリごとに分類
+  const categorizedProblems = {
+    印刷: [
+      {
+        icon: <DollarSign className="h-7 w-7" />,
+        title: 'まとめて1社に頼むことでコストダウンしたい',
+        description: '複数の業者への発注では中間マージンが発生し、コストがかさみます。'
+      },
+      {
+        icon: <HelpCircle className="h-7 w-7" />,
+        title: '早く納品してもらいたいが、品質が不安',
+        description: '納期を優先すると品質が犠牲になることが多く、両立が難しいと感じていませんか？'
+      },
+      {
+        icon: <Palette className="h-7 w-7" />,
+        title: 'デザイン修正の繰り返しで時間とコストがかかる',
+        description: '何度も修正を重ねるうちに予算オーバーや納期遅延が発生していませんか？'
+      },
+      {
+        icon: <FileText className="h-7 w-7" />,
+        title: 'パーソナライズド印刷への対応が難しい',
+        description: '顧客ごとにカスタマイズされた印刷物の需要に対応できていますか？'
+      }
+    ],
+    物流: [
+      {
+        icon: <Clock className="h-7 w-7" />,
+        title: '各工程ごとの発注業務やスケジュール管理が煩雑',
+        description: '印刷会社と物流会社との間の調整に時間と労力が取られていませんか？'
+      },
+      {
+        icon: <Package className="h-7 w-7" />,
+        title: '仕分け、梱包、発送に人手が取られる',
+        description: '専任者を雇うほどでもなく、本来の業務に集中できていない状況ではありませんか？'
+      },
+      {
+        icon: <TrendingUp className="h-7 w-7" />,
+        title: '繁忙期の配送キャパが足りず機会損失がある',
+        description: '需要ピーク時に配送能力が追いつかず、販売機会を逃していませんか？'
+      },
+      {
+        icon: <Network className="h-7 w-7" />,
+        title: '複雑な配送先管理に手間がかかりすぎる',
+        description: '多数の配送先や特殊な配送条件の管理に多くのリソースを割いていませんか？'
+      }
+    ],
+    倉庫・在庫管理: [
+      {
+        icon: <Building className="h-7 w-7" />,
+        title: '場所を取っている在庫をどこかに預けたい',
+        description: 'オフィスや倉庫のスペースと管理費を節約したいとお考えではありませんか？'
+      },
+      {
+        icon: <BarChart className="h-7 w-7" />,
+        title: '在庫精度が低く、余剰在庫や欠品が発生する',
+        description: '在庫管理の不正確さによる機会損失やコスト増加に悩んでいませんか？'
+      }
+    ],
+    その他: [
+      {
+        icon: <Recycle className="h-7 w-7" />,
+        title: '環境に配慮したサプライチェーンを構築したい',
+        description: 'SDGsへの取り組みを推進し、企業イメージの向上を図りたいと考えていませんか？'
+      },
+      {
+        icon: <Users className="h-7 w-7" />,
+        title: '物流人材の確保と教育が追いつかない',
+        description: '人手不足や高齢化により、物流業務の品質維持が難しくなっていませんか？'
+      }
+    ]
+  };
   
   return (
     <section 
@@ -124,39 +133,50 @@ const ProblemSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {problems.map((problem, index) => (
-            <div 
-              key={index} 
-              className="reveal transition-all duration-500 ease-out"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="h-full group">
-                <GlassPanelEffect
-                  className="p-8 h-full transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1"
-                  intensity="medium"
-                  color="white"
+        {/* カテゴリごとに問題点を表示 */}
+        {Object.entries(categorizedProblems).map(([category, problems], categoryIndex) => (
+          <div key={category} className="mb-16 last:mb-0 reveal" style={{ transitionDelay: `${categoryIndex * 100}ms` }}>
+            <h3 className="text-2xl font-bold text-bunshodo-blue mb-8 text-center">
+              <span className="inline-block px-6 py-2 bg-bunshodo-blue/10 rounded-full">
+                {category}に関するお悩み
+              </span>
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {problems.map((problem, index) => (
+                <div 
+                  key={index} 
+                  className="reveal transition-all duration-500 ease-out"
+                  style={{ transitionDelay: `${(index * 100) + 100}ms` }}
                 >
-                  <div className="flex flex-col h-full">
-                    <div className="mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br from-bunshodo-blue/10 to-bunshodo-green/10 flex items-center justify-center text-bunshodo-blue">
-                      {problem.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-bunshodo-dark-blue">{problem.title}</h3>
-                    <p className="text-bunshodo-medium-gray mb-6 flex-grow">{problem.description}</p>
-                    <div className="mt-auto pt-2 border-t border-bunshodo-light-gray">
-                      <div className="flex items-center mt-3 text-bunshodo-green font-medium">
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-bunshodo-green/10 mr-3">
-                          <Check className="h-4 w-4" />
+                  <div className="h-full group">
+                    <GlassPanelEffect
+                      className="p-8 h-full transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1"
+                      intensity="medium"
+                      color="white"
+                    >
+                      <div className="flex flex-col h-full">
+                        <div className="mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br from-bunshodo-blue/10 to-bunshodo-green/10 flex items-center justify-center text-bunshodo-blue">
+                          {problem.icon}
                         </div>
-                        <span>文唱堂印刷なら解決できます</span>
+                        <h3 className="text-xl font-semibold mb-3 text-bunshodo-dark-blue">{problem.title}</h3>
+                        <p className="text-bunshodo-medium-gray mb-6 flex-grow">{problem.description}</p>
+                        <div className="mt-auto pt-2 border-t border-bunshodo-light-gray">
+                          <div className="flex items-center mt-3 text-bunshodo-green font-medium">
+                            <div className="flex items-center justify-center w-6 h-6 rounded-full bg-bunshodo-green/10 mr-3">
+                              <Check className="h-4 w-4" />
+                            </div>
+                            <span>文唱堂印刷なら解決できます</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    </GlassPanelEffect>
                   </div>
-                </GlassPanelEffect>
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
         
         <div className="mt-16 text-center reveal">
           <div className="inline-block relative">
