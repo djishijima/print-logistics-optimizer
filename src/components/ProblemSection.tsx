@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Check, HelpCircle, Clock, DollarSign, Building, Package, Recycle } from 'lucide-react';
+import { Check, HelpCircle, Clock, DollarSign, Building, Package, Recycle, Palette, Users, TrendingUp, FileText, BarChart, Network } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GlassPanelEffect from './GlassPanelEffect';
 
@@ -58,6 +58,36 @@ const ProblemSection: React.FC = () => {
       icon: <Recycle className="h-7 w-7" />,
       title: '環境に配慮したサプライチェーンを構築したい',
       description: 'SDGsへの取り組みを推進し、企業イメージの向上を図りたいと考えていませんか？'
+    },
+    {
+      icon: <Palette className="h-7 w-7" />,
+      title: 'デザイン修正の繰り返しで時間とコストがかかる',
+      description: '何度も修正を重ねるうちに予算オーバーや納期遅延が発生していませんか？'
+    },
+    {
+      icon: <TrendingUp className="h-7 w-7" />,
+      title: '繁忙期の配送キャパが足りず機会損失がある',
+      description: '需要ピーク時に配送能力が追いつかず、販売機会を逃していませんか？'
+    },
+    {
+      icon: <FileText className="h-7 w-7" />,
+      title: 'パーソナライズド印刷への対応が難しい',
+      description: '顧客ごとにカスタマイズされた印刷物の需要に対応できていますか？'
+    },
+    {
+      icon: <BarChart className="h-7 w-7" />,
+      title: '在庫精度が低く、余剰在庫や欠品が発生する',
+      description: '在庫管理の不正確さによる機会損失やコスト増加に悩んでいませんか？'
+    },
+    {
+      icon: <Network className="h-7 w-7" />,
+      title: '複雑な配送先管理に手間がかかりすぎる',
+      description: '多数の配送先や特殊な配送条件の管理に多くのリソースを割いていませんか？'
+    },
+    {
+      icon: <Users className="h-7 w-7" />,
+      title: '物流人材の確保と教育が追いつかない',
+      description: '人手不足や高齢化により、物流業務の品質維持が難しくなっていませんか？'
     }
   ];
   
