@@ -83,26 +83,26 @@ const ProblemSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {problems.map((problem, index) => (
-            <GlassPanelEffect
-              key={index}
-              className="p-6 h-full reveal"
-              intensity="medium"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="flex flex-col h-full">
-                <div className="mb-4">
-                  {problem.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{problem.title}</h3>
-                <p className="text-bunshodo-medium-gray mb-4 flex-grow">{problem.description}</p>
-                <div className="mt-auto pt-4">
-                  <div className="flex items-center text-bunshodo-green">
-                    <Check className="h-5 w-5 mr-2" />
-                    <span className="font-medium">文唱堂なら解決できます</span>
+            <div key={index} className={`reveal`} style={{ transitionDelay: `${index * 100}ms` }}>
+              <GlassPanelEffect
+                className="p-6 h-full"
+                intensity="medium"
+              >
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    {problem.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{problem.title}</h3>
+                  <p className="text-bunshodo-medium-gray mb-4 flex-grow">{problem.description}</p>
+                  <div className="mt-auto pt-4">
+                    <div className="flex items-center text-bunshodo-green">
+                      <Check className="h-5 w-5 mr-2" />
+                      <span className="font-medium">文唱堂なら解決できます</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </GlassPanelEffect>
+              </GlassPanelEffect>
+            </div>
           ))}
         </div>
         
