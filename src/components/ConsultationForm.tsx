@@ -7,12 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { toast } from 'sonner';
 
-// Import the new component sections
+// Import the component sections
 import ContactInfoSection from './ConsultationSections/ContactInfoSection';
 import IssueSelectionSection from './ConsultationSections/IssueSelectionSection';
 import FileUploadSection from './ConsultationSections/FileUploadSection';
 import PrivacyAgreementSection from './ConsultationSections/PrivacyAgreementSection';
 import MessageSection from './ConsultationSections/MessageSection';
+import CostAnalysisSection from './ConsultationSections/CostAnalysisSection';
 
 // Define the schema for the form
 const consultationFormSchema = z.object({
@@ -23,6 +24,9 @@ const consultationFormSchema = z.object({
   message: z.string().optional(),
   printingIssues: z.array(z.string()).optional(),
   logisticsIssues: z.array(z.string()).optional(),
+  warehouseCost: z.string().optional(),
+  shippingCost: z.string().optional(),
+  printingCost: z.string().optional(),
   agreedToTerms: z.boolean().refine(val => val === true, {
     message: 'ご利用規約に同意する必要があります',
   }),
@@ -57,6 +61,9 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
       message: '',
       printingIssues: [],
       logisticsIssues: [],
+      warehouseCost: '',
+      shippingCost: '',
+      printingCost: '',
       agreedToTerms: false,
     },
   });
@@ -70,7 +77,23 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
       // Simulate API call with timeout
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      toast.success('送信が完了しました。担当者からご連絡いたします。');
+      let successMessage = '送信が完了しました。担当者からご連絡いたします。';
+      
+      if (formType === 'cost-analysis') {
+        const totalCost = (
+          (parseInt(data.warehouseCost || '0') || 0) + 
+          (parseInt(data.shippingCost || '0') || 0) + 
+          (parseInt(data.printingCost || '0') || 0)
+        );
+        
+        const potentialSavings = Math.round(totalCost * 0.3); // 30% potential savings
+        
+        if (totalCost > 0) {
+          successMessage = `送信完了！ 現在のコスト情報から、年間約${(potentialSavings * 12).toLocaleString()}円の削減可能性があります。詳細な分析結果を担当者からご連絡いたします。`;
+        }
+      }
+      
+      toast.success(successMessage);
       form.reset();
       setFiles([]);
       
@@ -91,8 +114,11 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          {/* Issue Selection Section - Now First */}
+          {/* Issue Selection Section - First */}
           <IssueSelectionSection control={form.control} />
+          
+          {/* Cost Analysis Section - Only for cost analysis form type */}
+          <CostAnalysisSection control={form.control} formType={formType} />
           
           {/* Message Section */}
           <MessageSection control={form.control} />

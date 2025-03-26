@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import GlassPanelEffect from './GlassPanelEffect';
 import Button from './Button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calculator } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import ConsultationForm from './ConsultationForm';
 
@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -76,12 +77,20 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             </nav>
 
             {/* Call to Action */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center space-x-4">
+              <Button 
+                size="md"
+                variant="outline"
+                onClick={() => setShowCostAnalysisForm(true)}
+                icon={<Calculator size={16} />}
+              >
+                コスト診断
+              </Button>
               <Button 
                 size="md"
                 onClick={() => setShowConsultationForm(true)}
               >
-                無料相談・お見積り
+                無料相談
               </Button>
             </div>
 
@@ -122,7 +131,18 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 {link.name}
               </a>
             ))}
-            <div className="pt-4">
+            <div className="pt-4 space-y-3 w-full">
+              <Button 
+                size="lg" 
+                variant="outline"
+                fullWidth
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setShowCostAnalysisForm(true);
+                }}
+              >
+                印刷物流コスト診断
+              </Button>
               <Button 
                 size="lg" 
                 fullWidth
@@ -131,7 +151,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                   setShowConsultationForm(true);
                 }}
               >
-                無料相談・お見積り
+                無料相談
               </Button>
             </div>
           </nav>
@@ -151,6 +171,23 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             formType="consultation"
             onSubmitSuccess={() => setShowConsultationForm(false)}
             onCancel={() => setShowConsultationForm(false)}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* Cost Analysis Form Dialog */}
+      <Dialog 
+        open={showCostAnalysisForm} 
+        onOpenChange={setShowCostAnalysisForm}
+      >
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
+          </DialogHeader>
+          <ConsultationForm 
+            formType="cost-analysis"
+            onSubmitSuccess={() => setShowCostAnalysisForm(false)}
+            onCancel={() => setShowCostAnalysisForm(false)}
           />
         </DialogContent>
       </Dialog>

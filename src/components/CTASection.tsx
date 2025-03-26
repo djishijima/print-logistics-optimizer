@@ -63,10 +63,10 @@ const CTASection: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-2">印刷物流コスト診断</h3>
                 <div className="flex items-center text-bunshodo-blue text-sm font-medium mb-4">
                   <Upload className="h-4 w-4 mr-1" />
-                  <span>資料のアップロードができます</span>
+                  <span>現在のコスト情報をご入力ください</span>
                 </div>
                 <p className="text-bunshodo-medium-gray mb-4">
-                  現在のコストを分析し、最適な印刷・物流プランをご提案します。
+                  現在の印刷・物流コストを分析し、削減可能な金額をご提案します。
                 </p>
                 <img 
                   src="/cost-analysis.jpg" 

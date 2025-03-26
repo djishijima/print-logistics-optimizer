@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             className="shadow-sm"
             onClick={() => setShowCostAnalysisForm(true)}
           >
-            資料請求
+            印刷物流コスト診断
           </Button>
         </div>
         
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
       >
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">資料請求フォーム</DialogTitle>
+            <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
           </DialogHeader>
           <ConsultationForm 
             formType="cost-analysis"
