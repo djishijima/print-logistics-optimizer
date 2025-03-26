@@ -1,12 +1,16 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
 import { ArrowDown } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import ConsultationForm from './ConsultationForm';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -76,6 +80,7 @@ const Hero: React.FC = () => {
             size="lg" 
             className="shadow-lg"
             glassMorphism
+            onClick={() => setShowConsultationForm(true)}
           >
             30分以内にお見積もり
           </Button>
@@ -84,6 +89,7 @@ const Hero: React.FC = () => {
             size="lg" 
             variant="outline"
             className="shadow-sm"
+            onClick={() => setShowCostAnalysisForm(true)}
           >
             資料請求
           </Button>
@@ -96,6 +102,40 @@ const Hero: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* Consultation Form Dialog */}
+      <Dialog 
+        open={showConsultationForm} 
+        onOpenChange={setShowConsultationForm}
+      >
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-bunshodo-blue">無料相談・お見積りフォーム</DialogTitle>
+          </DialogHeader>
+          <ConsultationForm 
+            formType="consultation"
+            onSubmitSuccess={() => setShowConsultationForm(false)}
+            onCancel={() => setShowConsultationForm(false)}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* Cost Analysis Form Dialog */}
+      <Dialog 
+        open={showCostAnalysisForm} 
+        onOpenChange={setShowCostAnalysisForm}
+      >
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-bunshodo-blue">資料請求フォーム</DialogTitle>
+          </DialogHeader>
+          <ConsultationForm 
+            formType="cost-analysis"
+            onSubmitSuccess={() => setShowCostAnalysisForm(false)}
+            onCancel={() => setShowCostAnalysisForm(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

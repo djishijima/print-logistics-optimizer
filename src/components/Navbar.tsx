@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils';
 import GlassPanelEffect from './GlassPanelEffect';
 import Button from './Button';
 import { Menu, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import ConsultationForm from './ConsultationForm';
 
 interface NavbarProps {
   className?: string;
@@ -12,6 +14,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -74,7 +77,10 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
             {/* Call to Action */}
             <div className="hidden lg:block">
-              <Button size="md">
+              <Button 
+                size="md"
+                onClick={() => setShowConsultationForm(true)}
+              >
                 無料相談・お見積り
               </Button>
             </div>
@@ -117,13 +123,37 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               </a>
             ))}
             <div className="pt-4">
-              <Button size="lg" fullWidth>
+              <Button 
+                size="lg" 
+                fullWidth
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setShowConsultationForm(true);
+                }}
+              >
                 無料相談・お見積り
               </Button>
             </div>
           </nav>
         </GlassPanelEffect>
       </div>
+
+      {/* Consultation Form Dialog */}
+      <Dialog 
+        open={showConsultationForm} 
+        onOpenChange={setShowConsultationForm}
+      >
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-bunshodo-blue">無料相談・お見積りフォーム</DialogTitle>
+          </DialogHeader>
+          <ConsultationForm 
+            formType="consultation"
+            onSubmitSuccess={() => setShowConsultationForm(false)}
+            onCancel={() => setShowConsultationForm(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </header>
   );
 };
