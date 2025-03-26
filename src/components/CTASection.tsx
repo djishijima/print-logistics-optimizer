@@ -10,6 +10,16 @@ const CTASection: React.FC = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-bunshodo-blue/10 to-bunshodo-green/10 z-0"></div>
       
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/printing-warehouse.jpg" 
+          alt="印刷工場" 
+          className="w-full h-full object-cover object-center opacity-15"
+        />
+        <div className="absolute inset-0 bg-bunshodo-blue/40 mix-blend-multiply"></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <GlassPanelEffect
           className="p-8 md:p-12 lg:p-16 max-w-5xl mx-auto text-center rounded-3xl"
@@ -24,7 +34,7 @@ const CTASection: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             <div className="reveal" style={{ transitionDelay: '100ms' }}>
-              <div className="bg-white/50 rounded-xl p-6 h-full flex flex-col items-center shadow-sm">
+              <div className="bg-white/60 rounded-xl p-6 h-full flex flex-col items-center shadow-sm hover:shadow-md transition-all">
                 <div className="mb-4 p-3 bg-bunshodo-blue/10 rounded-full">
                   <PhoneCall className="h-6 w-6 text-bunshodo-blue" />
                 </div>
@@ -32,11 +42,16 @@ const CTASection: React.FC = () => {
                 <p className="text-bunshodo-medium-gray mb-4">
                   お気軽にご相談ください。課題解決のプランをご提案します。
                 </p>
+                <img 
+                  src="/consultation.jpg" 
+                  alt="無料相談のイメージ" 
+                  className="w-full h-40 object-cover rounded-lg shadow-sm mt-auto"
+                />
               </div>
             </div>
             
             <div className="reveal" style={{ transitionDelay: '200ms' }}>
-              <div className="bg-white/50 rounded-xl p-6 h-full flex flex-col items-center shadow-sm">
+              <div className="bg-white/60 rounded-xl p-6 h-full flex flex-col items-center shadow-sm hover:shadow-md transition-all">
                 <div className="mb-4 p-3 bg-bunshodo-blue/10 rounded-full">
                   <Calculator className="h-6 w-6 text-bunshodo-blue" />
                 </div>
@@ -44,6 +59,11 @@ const CTASection: React.FC = () => {
                 <p className="text-bunshodo-medium-gray mb-4">
                   現在のコストを分析し、最適な印刷・物流プランをご提案します。
                 </p>
+                <img 
+                  src="/cost-analysis.jpg" 
+                  alt="コスト診断のイメージ" 
+                  className="w-full h-40 object-cover rounded-lg shadow-sm mt-auto"
+                />
               </div>
             </div>
           </div>
