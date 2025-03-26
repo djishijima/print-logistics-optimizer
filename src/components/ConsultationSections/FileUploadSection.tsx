@@ -100,7 +100,12 @@ const FileUploadSection: React.FC<FileUploadSectionProps> = ({ files, setFiles }
     <div className="border border-dashed border-bunshodo-blue/40 rounded-xl p-5 bg-bunshodo-blue/5">
       <div className="flex items-center gap-2 mb-3">
         <Upload className="h-5 w-5 text-bunshodo-blue" />
-        <h4 className="font-medium text-bunshodo-blue">資料をアップロード（任意）</h4>
+        <h4 className="font-medium text-bunshodo-blue">参考資料をアップロード（任意）</h4>
+      </div>
+      
+      <div className="text-sm text-bunshodo-medium-gray mb-4">
+        現在のコスト資料や請求書などがあれば、より正確な分析が可能です。
+        <strong>アップロードは必須ではありません。</strong>
       </div>
       
       <div 
@@ -176,6 +181,14 @@ const FileUploadSection: React.FC<FileUploadSectionProps> = ({ files, setFiles }
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {files.length === 0 && (
+        <div className="mt-4 p-4 bg-white/50 rounded-lg border border-gray-200">
+          <p className="text-center text-bunshodo-medium-gray text-sm">
+            アップロードは任意です。テキストでの詳細な情報提供でも分析可能です。
+          </p>
         </div>
       )}
 

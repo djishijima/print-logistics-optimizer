@@ -15,14 +15,9 @@ const CTASection: React.FC = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-bunshodo-blue/10 to-bunshodo-green/10 z-0"></div>
       
-      {/* Background image with overlay */}
+      {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/printing-warehouse.jpg" 
-          alt="印刷工場" 
-          className="w-full h-full object-cover object-center opacity-15"
-        />
-        <div className="absolute inset-0 bg-bunshodo-blue/40 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-bunshodo-blue/10 mix-blend-multiply"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -47,11 +42,11 @@ const CTASection: React.FC = () => {
                 <p className="text-bunshodo-medium-gray mb-4">
                   お気軽にご相談ください。課題解決のプランをご提案します。
                 </p>
-                <img 
-                  src="/consultation.jpg" 
-                  alt="無料相談のイメージ" 
-                  className="w-full h-40 object-cover rounded-lg shadow-sm mt-auto"
-                />
+                <div className="w-full p-4 bg-gray-50 rounded-lg mt-auto border border-gray-100">
+                  <p className="text-sm text-bunshodo-medium-gray">
+                    お客様の課題に合わせた最適なソリューションをご提案いたします。
+                  </p>
+                </div>
               </div>
             </div>
             
@@ -62,17 +57,16 @@ const CTASection: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">印刷物流コスト診断</h3>
                 <div className="flex items-center text-bunshodo-blue text-sm font-medium mb-4">
-                  <Upload className="h-4 w-4 mr-1" />
                   <span>現在のコスト情報をご入力ください</span>
                 </div>
                 <p className="text-bunshodo-medium-gray mb-4">
                   現在の印刷・物流コストを分析し、削減可能な金額をご提案します。
                 </p>
-                <img 
-                  src="/cost-analysis.jpg" 
-                  alt="コスト診断のイメージ" 
-                  className="w-full h-40 object-cover rounded-lg shadow-sm mt-auto"
-                />
+                <div className="w-full p-4 bg-gray-50 rounded-lg mt-auto border border-gray-100">
+                  <p className="text-sm text-bunshodo-medium-gray">
+                    コスト情報をテキストでご入力いただくだけで、約30%のコスト削減可能性を診断します。
+                  </p>
+                </div>
               </div>
             </div>
           </div>

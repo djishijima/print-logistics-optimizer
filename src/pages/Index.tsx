@@ -11,6 +11,9 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   useEffect(() => {
+    // Set page title to emphasize text-based application
+    document.title = "文唱堂 - 印刷・物流の総合コスト削減サービス";
+    
     // Initialize intersection observer for reveal animations
     const observerOptions = {
       root: null,
