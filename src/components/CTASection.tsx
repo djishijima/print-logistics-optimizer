@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import GlassPanelEffect from './GlassPanelEffect';
 import { Button } from '@/components/ui/button';
-import { Clock, FileText, PhoneCall, Calculator } from 'lucide-react';
+import { Clock, FileText, PhoneCall, Calculator, Upload } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import ConsultationForm from './ConsultationForm';
 
@@ -61,6 +61,10 @@ const CTASection: React.FC = () => {
                   <Calculator className="h-6 w-6 text-bunshodo-blue" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">印刷物流コスト診断</h3>
+                <div className="flex items-center text-bunshodo-blue text-sm font-medium mb-4">
+                  <Upload className="h-4 w-4 mr-1" />
+                  <span>資料のアップロードができます</span>
+                </div>
                 <p className="text-bunshodo-medium-gray mb-4">
                   現在のコストを分析し、最適な印刷・物流プランをご提案します。
                 </p>
@@ -101,7 +105,7 @@ const CTASection: React.FC = () => {
         open={showConsultationForm} 
         onOpenChange={setShowConsultationForm}
       >
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl text-bunshodo-blue">無料相談フォーム</DialogTitle>
           </DialogHeader>
@@ -117,7 +121,7 @@ const CTASection: React.FC = () => {
         open={showCostAnalysisForm} 
         onOpenChange={setShowCostAnalysisForm}
       >
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
           </DialogHeader>
