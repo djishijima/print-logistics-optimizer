@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
 import Button from './Button';
-import { Check, HelpCircle, Clock, DollarSign, Building, Truck } from 'lucide-react';
+import { Check, HelpCircle, Clock, DollarSign, Building, Truck, Package, Recycle } from 'lucide-react';
 
 const ProblemSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,29 +30,34 @@ const ProblemSection: React.FC = () => {
   
   const problems = [
     {
-      icon: <HelpCircle className="h-6 w-6 text-bunshodo-blue" />,
-      title: '複数の業者とのやり取りが面倒…',
-      description: '印刷会社と物流会社の間で板挟みになり、調整に時間とコストがかかっています。'
-    },
-    {
       icon: <DollarSign className="h-6 w-6 text-bunshodo-blue" />,
-      title: 'コストを削減したいけど、品質も落としたくない…',
-      description: '低価格と高品質の両立は難しいと諦めていませんか？'
+      title: 'まとめて1社に頼むことでコストダウンしたい',
+      description: '複数の業者への発注では中間マージンが発生し、コストがかさみます。'
     },
     {
       icon: <Clock className="h-6 w-6 text-bunshodo-blue" />,
-      title: '急ぎの案件にも対応してほしい…',
-      description: '納期が迫る中、対応できる印刷会社を探すのに苦労していませんか？'
+      title: '各工程ごとの発注業務やスケジュール管理が煩雑',
+      description: '印刷会社と物流会社との間の調整に時間と労力が取られていませんか？'
+    },
+    {
+      icon: <HelpCircle className="h-6 w-6 text-bunshodo-blue" />,
+      title: '早く納品してもらいたいが、品質が不安',
+      description: '納期を優先すると品質が犠牲になることが多く、両立が難しいと感じていませんか？'
+    },
+    {
+      icon: <Package className="h-6 w-6 text-bunshodo-blue" />,
+      title: '仕分け、梱包、発送に人手が取られる',
+      description: '専任者を雇うほどでもなく、本来の業務に集中できていない状況ではありませんか？'
     },
     {
       icon: <Building className="h-6 w-6 text-bunshodo-blue" />,
-      title: '保管場所がなく、オフィスが印刷物でいっぱい…',
-      description: '大量の印刷物の保管スペースの確保に悩んでいませんか？'
+      title: '場所を取っている在庫をどこかに預けたい',
+      description: 'オフィスや倉庫のスペースと管理費を節約したいとお考えではありませんか？'
     },
     {
-      icon: <Truck className="h-6 w-6 text-bunshodo-blue" />,
-      title: '仕分け・梱包・発送の手間と人件費…',
-      description: '発送作業に人手を取られ、本来の業務に集中できていますか？'
+      icon: <Recycle className="h-6 w-6 text-bunshodo-blue" />,
+      title: '環境に配慮したサプライチェーンを構築したい',
+      description: 'SDGsへの取り組みを推進し、企業イメージの向上を図りたいと考えていませんか？'
     }
   ];
   
@@ -74,10 +79,10 @@ const ProblemSection: React.FC = () => {
             お客様の課題
           </span>
           <h2 className="section-title reveal">
-            印刷物の発注、こんなお悩みありませんか？
+            こんなお悩み、ありませんか？
           </h2>
           <p className="section-subtitle reveal">
-            文唱堂なら、これらの悩みを全て解決できます！
+            1つでも当てはまるなら、文唱堂印刷にお任せください！
           </p>
         </div>
         
@@ -97,7 +102,7 @@ const ProblemSection: React.FC = () => {
                   <div className="mt-auto pt-4">
                     <div className="flex items-center text-bunshodo-green">
                       <Check className="h-5 w-5 mr-2" />
-                      <span className="font-medium">文唱堂なら解決できます</span>
+                      <span className="font-medium">文唱堂印刷なら解決できます</span>
                     </div>
                   </div>
                 </div>
