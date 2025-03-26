@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { toast } from 'sonner';
+import { Progress } from '@/components/ui/progress';
+import { ArrowRight, Check } from 'lucide-react';
 
 // Import the component sections
 import ContactInfoSection from './ConsultationSections/ContactInfoSection';
@@ -23,7 +25,9 @@ const consultationFormSchema = z.object({
   phone: z.string().optional(),
   message: z.string().optional(),
   printingIssues: z.array(z.string()).optional(),
+  printingIssueDetails: z.record(z.string(), z.string()).optional(),
   logisticsIssues: z.array(z.string()).optional(),
+  logisticsIssueDetails: z.record(z.string(), z.string()).optional(),
   warehouseCost: z.string().optional(),
   shippingCost: z.string().optional(),
   printingCost: z.string().optional(),
@@ -46,6 +50,10 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
   onCancel
 }) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [potentialSavings, setPotentialSavings] = useState(0);
+  
+  const totalSteps = 4;
   
   const formTitle = formType === 'consultation' 
     ? '無料相談フォーム' 
@@ -60,13 +68,70 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
       phone: '',
       message: '',
       printingIssues: [],
+      printingIssueDetails: {},
       logisticsIssues: [],
+      logisticsIssueDetails: {},
       warehouseCost: '',
       shippingCost: '',
       printingCost: '',
       agreedToTerms: false,
     },
+    mode: 'onChange'
   });
+
+  const warehouseCost = form.watch('warehouseCost');
+  const shippingCost = form.watch('shippingCost');
+  const printingCost = form.watch('printingCost');
+  const printingIssues = form.watch('printingIssues');
+  const logisticsIssues = form.watch('logisticsIssues');
+
+  // Calculate potential savings
+  useEffect(() => {
+    const warehouseValue = parseInt(warehouseCost || '0') || 0;
+    const shippingValue = parseInt(shippingCost || '0') || 0;
+    const printingValue = parseInt(printingCost || '0') || 0;
+    
+    const totalCost = warehouseValue + shippingValue + printingValue;
+    const savings = Math.round(totalCost * 0.3); // 30% potential savings
+    
+    setPotentialSavings(savings);
+  }, [warehouseCost, shippingCost, printingCost]);
+
+  // Next step handler
+  const goToNextStep = async () => {
+    let canProceed = false;
+    
+    // Validate current step fields
+    if (currentStep === 1) {
+      // Issues selection step doesn't require validation, can always proceed
+      canProceed = true;
+    } else if (currentStep === 2 && formType === 'cost-analysis') {
+      // Cost analysis step - validation not required, all fields are optional
+      canProceed = true;
+    } else if (currentStep === 2 || currentStep === 3) {
+      // Message step or contact info step
+      canProceed = true;
+    } else if (currentStep === 4) {
+      // Final step with terms acceptance - validate the whole form
+      const isValid = await form.trigger();
+      canProceed = isValid;
+    }
+    
+    if (canProceed && currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+      // Scroll to top of form
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Previous step handler
+  const goToPreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      // Scroll to top of form
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const onSubmit = async (data: ConsultationFormValues) => {
     try {
@@ -106,49 +171,125 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
     }
   };
 
+  // Render step content based on current step
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return <IssueSelectionSection control={form.control} />;
+      case 2:
+        if (formType === 'cost-analysis') {
+          return (
+            <CostAnalysisSection 
+              control={form.control} 
+              formType={formType} 
+              potentialSavings={potentialSavings}
+            />
+          );
+        } else {
+          // For consultation form, show message section in step 2
+          return <MessageSection control={form.control} />;
+        }
+      case 3:
+        if (formType === 'cost-analysis') {
+          // For cost analysis form, show message section in step 3
+          return (
+            <>
+              <MessageSection control={form.control} />
+              <FileUploadSection files={files} setFiles={setFiles} />
+            </>
+          );
+        } else {
+          // For consultation form, show file upload section in step 3
+          return <FileUploadSection files={files} setFiles={setFiles} />;
+        }
+      case 4:
+        return (
+          <>
+            <ContactInfoSection control={form.control} />
+            <PrivacyAgreementSection control={form.control} />
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="p-6 rounded-xl bg-white/90 shadow-lg backdrop-blur-sm">
-      <h3 className="text-2xl font-bold mb-6 text-bunshodo-blue">
+      <h3 className="text-2xl font-bold mb-2 text-bunshodo-blue">
         {formTitle}
       </h3>
+      
+      {/* Progress indicator */}
+      <div className="mb-6">
+        <div className="flex justify-between text-sm text-bunshodo-medium-gray mb-2">
+          <span>ステップ {currentStep}/{totalSteps}</span>
+          <span>{Math.round((currentStep / totalSteps) * 100)}% 完了</span>
+        </div>
+        <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
+        
+        <div className="flex justify-between mt-2 text-xs text-bunshodo-medium-gray">
+          <span>課題選択</span>
+          <span>コスト情報</span>
+          <span>補足情報</span>
+          <span>お客様情報</span>
+        </div>
+      </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          {/* Issue Selection Section - First */}
-          <IssueSelectionSection control={form.control} />
-          
-          {/* Cost Analysis Section - Only for cost analysis form type */}
-          <CostAnalysisSection control={form.control} formType={formType} />
-          
-          {/* Message Section */}
-          <MessageSection control={form.control} />
-          
-          {/* File Upload Section */}
-          <FileUploadSection files={files} setFiles={setFiles} />
-          
-          {/* Contact Information Section - Now Last */}
-          <ContactInfoSection control={form.control} />
-          
-          {/* Privacy Agreement Section */}
-          <PrivacyAgreementSection control={form.control} />
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* Step content */}
+          {renderStepContent()}
 
-          <div className="flex justify-end space-x-4 pt-4">
-            {onCancel && (
+          {/* Navigation buttons */}
+          <div className="flex justify-between space-x-4 pt-4 border-t border-gray-200">
+            {currentStep > 1 ? (
               <Button 
                 type="button" 
                 variant="outline" 
-                onClick={onCancel}
+                onClick={goToPreviousStep}
               >
-                キャンセル
+                前のステップ
+              </Button>
+            ) : (
+              <div>
+                {onCancel && (
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={onCancel}
+                  >
+                    キャンセル
+                  </Button>
+                )}
+              </div>
+            )}
+            
+            {currentStep < totalSteps ? (
+              <Button 
+                type="button" 
+                className="bg-bunshodo-blue hover:bg-bunshodo-dark-blue"
+                onClick={goToNextStep}
+              >
+                次のステップ
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            ) : (
+              <Button 
+                type="submit" 
+                className="bg-bunshodo-blue hover:bg-bunshodo-dark-blue"
+                disabled={form.formState.isSubmitting}
+              >
+                {form.formState.isSubmitting ? (
+                  "送信中..."
+                ) : (
+                  <>
+                    <Check className="h-4 w-4 mr-1" />
+                    送信する
+                  </>
+                )}
               </Button>
             )}
-            <Button 
-              type="submit" 
-              className="bg-bunshodo-blue hover:bg-bunshodo-dark-blue"
-              disabled={form.formState.isSubmitting}
-            >
-              {form.formState.isSubmitting ? "送信中..." : "送信する"}
-            </Button>
           </div>
         </form>
       </Form>
