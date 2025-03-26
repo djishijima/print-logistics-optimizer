@@ -91,10 +91,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          {/* Contact Information Section */}
-          <ContactInfoSection control={form.control} />
-          
-          {/* Issue Selection Section */}
+          {/* Issue Selection Section - Now First */}
           <IssueSelectionSection control={form.control} />
           
           {/* Message Section */}
@@ -102,6 +99,9 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
           
           {/* File Upload Section */}
           <FileUploadSection files={files} setFiles={setFiles} />
+          
+          {/* Contact Information Section - Now Last */}
+          <ContactInfoSection control={form.control} />
           
           {/* Privacy Agreement Section */}
           <PrivacyAgreementSection control={form.control} />
