@@ -61,21 +61,21 @@ const AdvantagesSection: React.FC = () => {
   
   // 統合システムの仕組み図の説明
   const integrationExplanation = {
-    title: "なぜ統合システムが優れているのか？",
-    description: "従来の分業型システムと文唱堂の統合システムを比較すると、その効率性の違いは明らかです。",
+    title: "何が違うサービスなのか？",
+    description: "通常の分業型サービスと文唱堂のワンストップサービスを比較すると、その効率性の違いは明らかです。",
     traditionalSystem: [
-      "複数業者との契約・調整に時間とコストがかかる",
-      "業者間の情報伝達ミスによる品質低下リスク",
-      "データ共有による情報セキュリティリスク増大",
-      "工程ごとの納期管理が複雑化",
-      "トータルコストが見えづらく予算管理が難しい"
+      "印刷会社、運送会社、倉庫会社がそれぞれ別々の会社",
+      "複数の会社との連絡調整に時間がかかる",
+      "各社へのマージンが発生しコストが高くなる",
+      "情報共有不足によるミスや納期遅延のリスク",
+      "印刷物がある場合のみのサービス提供"
     ],
     integratedSystem: [
-      "窓口の一本化による管理工数の大幅削減",
-      "データ移行なしで品質一貫維持",
-      "情報管理ポイントの集約でセキュリティ強化",
-      "全工程の進捗リアルタイム可視化",
-      "トータルコストの透明化と最適化"
+      "印刷・配送・保管を一社で完結",
+      "ワンストップサービスで手続きが簡単",
+      "中間マージンカットで30%のコスト削減",
+      "一貫した品質管理で高品質なサービス提供",
+      "印刷物がなくても配送・保管サービスの利用可能"
     ]
   };
   
@@ -127,7 +127,7 @@ const AdvantagesSection: React.FC = () => {
                   ))}
                 </div>
                 <div className="mt-6 bg-red-50 p-4 rounded-lg">
-                  <p className="text-red-700 font-medium">結果：コスト増大・納期遅延・品質バラつき</p>
+                  <p className="text-red-700 font-medium">結果：コスト増大・納期遅延・手続き煩雑</p>
                 </div>
               </div>
               
@@ -137,7 +137,7 @@ const AdvantagesSection: React.FC = () => {
                   <div className="p-2 bg-green-100 rounded-full mr-3">
                     <Target className="h-6 w-6 text-green-500" />
                   </div>
-                  <h4 className="text-xl font-semibold text-green-500">文唱堂の統合システム</h4>
+                  <h4 className="text-xl font-semibold text-green-500">文唱堂のワンストップサービス</h4>
                 </div>
                 <div className="space-y-3">
                   {integrationExplanation.integratedSystem.map((item, idx) => (
@@ -148,7 +148,7 @@ const AdvantagesSection: React.FC = () => {
                   ))}
                 </div>
                 <div className="mt-6 bg-green-50 p-4 rounded-lg">
-                  <p className="text-green-700 font-medium">結果：30%コスト削減・納期5日短縮・品質向上</p>
+                  <p className="text-green-700 font-medium">結果：30%コスト削減・納期5日短縮・手続き簡素化</p>
                 </div>
               </div>
             </div>

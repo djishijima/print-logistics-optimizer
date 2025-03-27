@@ -8,37 +8,37 @@ const ProcessSection: React.FC = () => {
     {
       icon: <MessageSquare className="h-8 w-8" />,
       title: "ヒアリング・企画提案",
-      description: "お客様のご要望をしっかりとヒアリングし、目的に合わせた最適な企画を提案します。"
+      description: "お客様のご要望をしっかりとヒアリングし、印刷物が必要かどうかも含めて、最適なサービスをご提案します。"
     },
     {
       icon: <Palette className="h-8 w-8" />,
       title: "デザイン制作",
-      description: "熟練のデザイナーが、効果的な販促物・印刷物のデザインを制作します。"
+      description: "印刷物が必要な場合は、熟練のデザイナーが効果的なデザインを制作。印刷不要の物流のみのご依頼も承ります。"
     },
     {
       icon: <Printer className="h-8 w-8" />,
       title: "印刷・加工",
-      description: "最新の印刷設備で高品質な印刷を行い、必要に応じて製本・加工も対応します。"
+      description: "高品質な印刷と加工を行います。他社で印刷されたものの物流・保管のみのご依頼も可能です。"
     },
     {
       icon: <Package className="h-8 w-8" />,
       title: "仕分け・梱包",
-      description: "配送先に合わせて丁寧に仕分け・梱包作業を行います。"
+      description: "配送先に合わせて丁寧に仕分け・梱包作業を行います。印刷物以外の商品の梱包も承ります。"
     },
     {
       icon: <Archive className="h-8 w-8" />,
       title: "在庫管理",
-      description: "当社の倉庫で適切に在庫を管理し、必要に応じて出荷します。"
+      description: "当社の倉庫で適切に在庫を管理し、必要に応じて出荷します。印刷物に限らず、あらゆる商品の保管が可能です。"
     },
     {
       icon: <Truck className="h-8 w-8" />,
       title: "配送",
-      description: "全国各地への個別配送や一括配送など、ご要望に応じた配送を行います。"
+      description: "全国各地への個別配送や一括配送など、印刷物だけでなく、あらゆる商品の配送サービスを提供します。"
     },
     {
       icon: <CheckCircle className="h-8 w-8" />,
       title: "結果報告・分析",
-      description: "配送完了後の結果報告や効果分析を行い、次回の改善につなげます。"
+      description: "配送完了後の結果報告や効果分析を行い、次回の改善につなげます。すべてのサービスで詳細なレポートを提供します。"
     }
   ];
   
@@ -56,10 +56,10 @@ const ProcessSection: React.FC = () => {
             サービスの流れ
           </span>
           <h2 className="section-title reveal">
-            印刷から配送までの7ステップ
+            印刷から配送までのワンストップサービス
           </h2>
           <p className="section-subtitle reveal">
-            文唱堂では、以下の流れでワンストップサービスを提供しています
+            文唱堂では、印刷物の有無に関わらず、以下の流れでサービスを提供しています
           </p>
         </div>
         
