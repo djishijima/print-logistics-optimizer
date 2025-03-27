@@ -94,13 +94,14 @@ const Hero: React.FC = () => {
             印刷物流コスト診断
           </Button>
         </div>
-        
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#problems" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex flex-col items-center">
-            <span className="mb-2 text-sm">詳しく見る</span>
-            <ArrowDown size={20} />
-          </a>
-        </div>
+      </div>
+      
+      {/* スクロールダウン表示 - 位置を修正 */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+        <a href="#problems" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex flex-col items-center">
+          <span className="mb-2 text-sm">詳しく見る</span>
+          <ArrowDown size={20} />
+        </a>
       </div>
 
       {/* Consultation Form Dialog */}
