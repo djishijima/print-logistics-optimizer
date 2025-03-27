@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { MapPin, Phone, Mail, Globe, Leaf, Award, Fax, Building, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Leaf, Award, Printer, Building, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -125,7 +124,7 @@ const Footer: React.FC = () => {
                       <span>03-3851-0111</span>
                     </div>
                     <div className="flex items-center text-sm">
-                      <Fax className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
+                      <Printer className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
                       <span>03-3861-1979</span>
                     </div>
                   </div>
@@ -142,7 +141,7 @@ const Footer: React.FC = () => {
                       <span>03-3819-2500</span>
                     </div>
                     <div className="flex items-center text-sm">
-                      <Fax className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
+                      <Printer className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
                       <span>03-3819-2530</span>
                     </div>
                   </div>
