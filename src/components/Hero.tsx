@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, CheckCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import ConsultationForm from './ConsultationForm';
 
@@ -30,10 +30,21 @@ const Hero: React.FC = () => {
   
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background shapes */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-bunshodo-blue/20 filter blur-3xl animate-float opacity-70"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-bunshodo-green/20 filter blur-3xl animate-pulse-soft opacity-70"></div>
+      {/* 背景要素の強化 */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* グラデーション背景 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-bunshodo-blue/5 via-white to-bunshodo-green/5"></div>
+        
+        {/* 装飾的な形状 */}
+        <div className="absolute top-1/4 left-1/5 w-80 h-80 rounded-full bg-bunshodo-blue/15 filter blur-3xl animate-float opacity-70"></div>
+        <div className="absolute bottom-1/3 right-1/5 w-96 h-96 rounded-full bg-bunshodo-green/15 filter blur-3xl animate-pulse-soft opacity-70"></div>
+        
+        {/* 装飾的なパターン */}
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 opacity-10">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-bunshodo-blue">
+            <path fill="currentColor" d="M42.8,-62.2C52.3,-51.7,55.4,-35.5,58.9,-20.4C62.4,-5.3,66.2,8.6,63.3,21.3C60.4,33.9,50.8,45.3,38.9,53.1C27.1,60.9,13.5,65.1,-0.4,65.7C-14.3,66.2,-28.7,63.1,-40.3,55.2C-51.9,47.3,-60.8,34.6,-66.8,19.9C-72.7,5.1,-75.8,-11.7,-70.6,-25.4C-65.3,-39,-51.8,-49.6,-38,-58.4C-24.3,-67.1,-10.2,-74,3.8,-79.1C17.7,-84.2,33.4,-72.7,42.8,-62.2Z" transform="translate(100 100)" />
+          </svg>
+        </div>
       </div>
 
       <div 
@@ -41,24 +52,24 @@ const Hero: React.FC = () => {
         className="relative z-10 container mx-auto px-4 md:px-6 py-12 flex flex-col items-center text-center"
       >
         <div className="mb-2">
-          <span className="inline-block px-3 py-1 text-sm font-medium bg-bunshodo-blue/10 text-bunshodo-blue rounded-full mb-4 animate-fade-in">
+          <span className="inline-block px-4 py-1.5 text-sm font-medium bg-bunshodo-blue/10 text-bunshodo-blue rounded-full mb-4 animate-fade-in backdrop-blur-sm border border-bunshodo-blue/20">
             印刷＋物流＝文唱堂
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 tracking-tight">
           <AnimatedText
             text="印刷、そして物流の現場を変える"
             as="span"
-            className="block"
+            className="block bg-gradient-to-r from-bunshodo-dark-blue via-bunshodo-blue to-bunshodo-green bg-clip-text text-transparent"
             animation="fade-in-up"
             delay={100}
           />
         </h1>
         
         <GlassPanelEffect 
-          className="max-w-3xl mx-auto p-6 my-8" 
-          intensity="light"
+          className="max-w-3xl mx-auto p-8 my-8 border border-white/30" 
+          intensity="medium"
         >
           <AnimatedText
             text="印刷・物流をまとめてアウトソーシング。コスト削減、スピードアップ、環境貢献を実現します。"
@@ -66,6 +77,25 @@ const Hero: React.FC = () => {
             animation="fade-in"
             delay={300}
           />
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <div className="flex items-center text-bunshodo-green">
+              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
+              <span className="text-sm md:text-base">納期短縮</span>
+            </div>
+            <div className="flex items-center text-bunshodo-green">
+              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
+              <span className="text-sm md:text-base">コスト削減</span>
+            </div>
+            <div className="flex items-center text-bunshodo-green">
+              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
+              <span className="text-sm md:text-base">品質向上</span>
+            </div>
+            <div className="flex items-center text-bunshodo-green">
+              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
+              <span className="text-sm md:text-base">環境負荷低減</span>
+            </div>
+          </div>
           
           <AnimatedText
             text="Bunshodo Printing Company"
@@ -75,7 +105,7 @@ const Hero: React.FC = () => {
           />
         </GlassPanelEffect>
         
-        <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in" style={{ animationDelay: '700ms' }}>
+        <div className="flex flex-col sm:flex-row gap-6 mt-10 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Button 
             size="lg" 
             className="shadow-lg"
@@ -99,8 +129,8 @@ const Hero: React.FC = () => {
       {/* スクロールダウン表示 - 位置を修正 */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
         <a href="#problems" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex flex-col items-center">
-          <span className="mb-2 text-sm">詳しく見る</span>
-          <ArrowDown size={20} />
+          <span className="mb-2 text-sm font-medium">詳しく見る</span>
+          <ArrowDown size={24} className="text-bunshodo-blue" />
         </a>
       </div>
 
