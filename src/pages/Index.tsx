@@ -18,11 +18,11 @@ const Index: React.FC = () => {
     // Add meta description for SEO
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。');
+      metaDescription.setAttribute('content', '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。経済産業省、NHK出版、日本銀行など100社以上の導入実績。');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。';
+      meta.content = '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。経済産業省、NHK出版、日本銀行など100社以上の導入実績。';
       document.head.appendChild(meta);
     }
     
@@ -40,7 +40,7 @@ const Index: React.FC = () => {
     };
     
     // Add specific meta tags for better SEO
-    addMetaTag('keywords', '印刷,物流,倉庫管理,コスト削減,納期短縮,一貫管理,ワンストップ,文唱堂');
+    addMetaTag('keywords', '印刷,物流,倉庫管理,コスト削減,納期短縮,一貫管理,ワンストップ,文唱堂,経済産業省,NHK出版,日本銀行');
     addMetaTag('robots', 'index, follow');
     addMetaTag('author', '文唱堂印刷株式会社');
     
