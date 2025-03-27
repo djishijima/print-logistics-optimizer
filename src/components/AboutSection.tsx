@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Calendar, Users, Building, Phone, MapPin, Globe, Mail, FilePhone, ExternalLink } from 'lucide-react';
+import { Award, Calendar, Users, Building, Phone, MapPin, Globe, Mail, Fax, ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 const AboutSection: React.FC = () => {
@@ -66,7 +66,7 @@ const AboutSection: React.FC = () => {
                             03-3851-0111
                           </span>
                           <span className="flex items-center">
-                            <FilePhone className="h-4 w-4 text-bunshodo-blue mr-1" />
+                            <Fax className="h-4 w-4 text-bunshodo-blue mr-1" />
                             03-3861-1979
                           </span>
                         </div>
@@ -88,7 +88,7 @@ const AboutSection: React.FC = () => {
                             03-3819-2500
                           </span>
                           <span className="flex items-center">
-                            <FilePhone className="h-4 w-4 text-bunshodo-blue mr-1" />
+                            <Fax className="h-4 w-4 text-bunshodo-blue mr-1" />
                             03-3819-2530
                           </span>
                         </div>
