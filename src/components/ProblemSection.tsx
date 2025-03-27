@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Check, HelpCircle, Clock, DollarSign, Building, Package, Recycle, Palette, Users, TrendingUp, FileText, BarChart, Network } from 'lucide-react';
+import { Check, HelpCircle, Clock, DollarSign, Building, Package, Recycle, Palette, Users, TrendingUp, FileText, BarChart, Network, Truck, Search, Archive, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GlassPanelEffect from './GlassPanelEffect';
 
@@ -84,6 +83,26 @@ const ProblemSection: React.FC = () => {
         icon: <BarChart className="h-7 w-7" />,
         title: '在庫精度が低く、余剰在庫や欠品が発生する',
         description: '在庫管理の不正確さによる機会損失やコスト増加に悩んでいませんか？'
+      },
+      {
+        icon: <Truck className="h-7 w-7" />,
+        title: '入出庫業務の効率化が図れていない',
+        description: '手作業による入出庫処理で時間がかかり、ミスも発生していませんか？'
+      },
+      {
+        icon: <Search className="h-7 w-7" />,
+        title: '在庫の所在が不明で探す手間がかかる',
+        description: '必要な在庫がどこにあるのか分からず、探すのに時間を浪費していませんか？'
+      },
+      {
+        icon: <Archive className="h-7 w-7" />,
+        title: '季節商品や販促物の保管場所が不足している',
+        description: '使用頻度の低い商品や資材が貴重なスペースを占有していませんか？'
+      },
+      {
+        icon: <Settings className="h-7 w-7" />,
+        title: '在庫管理システムの導入・運用コストが高い',
+        description: '高額なシステム投資が必要で、専門知識を持つ人材も確保できていませんか？'
       }
     ],
     "その他": [
