@@ -106,6 +106,7 @@ const CTASection: React.FC = () => {
           <ConsultationForm 
             formType="consultation"
             onSubmitSuccess={() => setShowConsultationForm(false)}
+            onCancel={() => setShowConsultationForm(false)}
           />
         </DialogContent>
       </Dialog>
@@ -122,6 +123,7 @@ const CTASection: React.FC = () => {
           <ConsultationForm 
             formType="cost-analysis"
             onSubmitSuccess={() => setShowCostAnalysisForm(false)}
+            onCancel={() => setShowCostAnalysisForm(false)}
           />
         </DialogContent>
       </Dialog>
