@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 tracking-tight">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-10 tracking-tight">
           <AnimatedText
             text="印刷、そして物流の現場を変える"
             as="span"
@@ -67,48 +67,46 @@ const Hero: React.FC = () => {
           />
         </h1>
         
-        <GlassPanelEffect 
-          className="max-w-3xl mx-auto p-8 my-8 border border-white/30" 
-          intensity="medium"
-        >
+        {/* Glass panel removed, text size increased */}
+        <div className="max-w-4xl mx-auto mb-12">
           <AnimatedText
             text="印刷・物流をまとめてアウトソーシング。コスト削減、スピードアップ、環境貢献を実現します。"
-            className="text-xl md:text-2xl mb-6 text-bunshodo-dark-gray"
+            className="text-2xl md:text-3xl lg:text-4xl mb-8 text-bunshodo-dark-gray font-medium"
             animation="fade-in"
             delay={300}
           />
           
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <div className="flex items-center text-bunshodo-green">
-              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
-              <span className="text-sm md:text-base">納期短縮</span>
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
+              <CheckCircle className="h-6 w-6 mr-2 inline-block" />
+              <span>納期短縮</span>
             </div>
-            <div className="flex items-center text-bunshodo-green">
-              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
-              <span className="text-sm md:text-base">コスト削減</span>
+            <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
+              <CheckCircle className="h-6 w-6 mr-2 inline-block" />
+              <span>コスト削減</span>
             </div>
-            <div className="flex items-center text-bunshodo-green">
-              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
-              <span className="text-sm md:text-base">品質向上</span>
+            <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
+              <CheckCircle className="h-6 w-6 mr-2 inline-block" />
+              <span>品質向上</span>
             </div>
-            <div className="flex items-center text-bunshodo-green">
-              <CheckCircle className="h-5 w-5 mr-2 inline-block" />
-              <span className="text-sm md:text-base">環境負荷低減</span>
+            <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
+              <CheckCircle className="h-6 w-6 mr-2 inline-block" />
+              <span>環境負荷低減</span>
             </div>
           </div>
           
           <AnimatedText
             text="Bunshodo Printing Company"
-            className="text-bunshodo-medium-gray"
+            className="text-xl text-bunshodo-medium-gray"
             animation="fade-in"
             delay={500}
           />
-        </GlassPanelEffect>
+        </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 mt-10 animate-fade-in" style={{ animationDelay: '700ms' }}>
+        <div className="flex flex-col sm:flex-row gap-6 mt-2 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Button 
             size="lg" 
-            className="shadow-lg"
+            className="shadow-lg text-lg py-6 px-8"
             glassMorphism
             onClick={() => setShowConsultationForm(true)}
           >
@@ -118,7 +116,7 @@ const Hero: React.FC = () => {
           <Button 
             size="lg" 
             variant="outline"
-            className="shadow-sm"
+            className="shadow-sm text-lg py-6 px-8"
             onClick={() => setShowCostAnalysisForm(true)}
           >
             印刷物流コスト診断
