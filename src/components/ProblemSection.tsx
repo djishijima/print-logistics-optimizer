@@ -30,7 +30,7 @@ const ProblemSection: React.FC = () => {
   
   // 問題点をカテゴリごとに分類
   const categorizedProblems = {
-    印刷: [
+    "印刷": [
       {
         icon: <DollarSign className="h-7 w-7" />,
         title: 'まとめて1社に頼むことでコストダウンしたい',
@@ -52,7 +52,7 @@ const ProblemSection: React.FC = () => {
         description: '顧客ごとにカスタマイズされた印刷物の需要に対応できていますか？'
       }
     ],
-    物流: [
+    "物流": [
       {
         icon: <Clock className="h-7 w-7" />,
         title: '各工程ごとの発注業務やスケジュール管理が煩雑',
@@ -74,7 +74,7 @@ const ProblemSection: React.FC = () => {
         description: '多数の配送先や特殊な配送条件の管理に多くのリソースを割いていませんか？'
       }
     ],
-    倉庫・在庫管理: [
+    "倉庫・在庫管理": [
       {
         icon: <Building className="h-7 w-7" />,
         title: '場所を取っている在庫をどこかに預けたい',
@@ -86,7 +86,7 @@ const ProblemSection: React.FC = () => {
         description: '在庫管理の不正確さによる機会損失やコスト増加に悩んでいませんか？'
       }
     ],
-    その他: [
+    "その他": [
       {
         icon: <Recycle className="h-7 w-7" />,
         title: '環境に配慮したサプライチェーンを構築したい',
