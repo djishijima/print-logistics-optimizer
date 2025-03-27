@@ -6,6 +6,7 @@ import ProblemSection from '@/components/ProblemSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
 import CaseStudiesSection from '@/components/CaseStudiesSection';
 import ProcessSection from '@/components/ProcessSection';
+import AboutSection from '@/components/AboutSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import { Toaster } from 'sonner';
@@ -81,6 +82,7 @@ const Index: React.FC = () => {
       <AdvantagesSection />
       <CaseStudiesSection />
       <ProcessSection />
+      <AboutSection />
       <CTASection />
       <Footer />
     </div>
