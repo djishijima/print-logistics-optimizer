@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
-import { ArrowDown, CheckCircle } from 'lucide-react';
+import { ArrowDown, CheckCircle, ArrowRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import ConsultationForm from './ConsultationForm';
 
@@ -11,6 +11,7 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
+  const [showWhyUsDialog, setShowWhyUsDialog] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,35 @@ const Hero: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // 統合アプローチの理由
+  const integrationBenefits = [
+    {
+      title: "コスト削減",
+      description: "複数の業者間の中間マージンがなくなり、印刷から物流までの一貫した工程管理により無駄なコストを削減。平均して30%のコスト削減を実現します。",
+      icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
+    },
+    {
+      title: "スピードアップ",
+      description: "工程間の受け渡し時間が大幅に短縮され、複数業者間の調整が不要になるため、リードタイムが平均5日間短縮されます。",
+      icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
+    },
+    {
+      title: "品質向上",
+      description: "印刷から配送まで一貫した品質管理体制により、工程間でのトラブルやミスが減少。経済産業大臣賞受賞の技術で高品質を保証します。",
+      icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
+    },
+    {
+      title: "安全・安心",
+      description: "情報セキュリティの一元管理により個人情報や機密情報の漏洩リスクを低減。ISO27001認証取得のセキュリティ体制を構築しています。",
+      icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
+    },
+    {
+      title: "環境負荷低減",
+      description: "輸送距離の短縮や梱包材の最適化により、CO2排出量を従来比15%削減。環境配慮型の印刷技術で持続可能なサプライチェーンを実現します。",
+      icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
+    }
+  ];
   
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -94,6 +124,14 @@ const Hero: React.FC = () => {
               <span>環境負荷低減</span>
             </div>
           </div>
+          
+          <button 
+            onClick={() => setShowWhyUsDialog(true)}
+            className="flex items-center justify-center mx-auto text-bunshodo-blue hover:text-bunshodo-dark-blue transition-colors mb-6 group"
+          >
+            <span className="font-medium mr-2 text-lg">なぜ文唱堂の印刷×物流が選ばれるのか</span>
+            <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+          </button>
           
           <AnimatedText
             text="Bunshodo Printing Company"
@@ -163,6 +201,59 @@ const Hero: React.FC = () => {
             onSubmitSuccess={() => setShowCostAnalysisForm(false)}
             onCancel={() => setShowCostAnalysisForm(false)}
           />
+        </DialogContent>
+      </Dialog>
+
+      {/* Why Us Dialog - 統合アプローチの説明 */}
+      <Dialog 
+        open={showWhyUsDialog} 
+        onOpenChange={setShowWhyUsDialog}
+      >
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-bunshodo-blue">なぜ文唱堂の印刷×物流が選ばれるのか</DialogTitle>
+          </DialogHeader>
+          
+          <div className="mt-4">
+            <p className="text-bunshodo-dark-gray mb-6">
+              印刷と物流、そして倉庫管理を一社で行うことには、多くのメリットがあります。文唱堂の統合アプローチがなぜ多くの企業に選ばれているのか、その理由をご説明します。
+            </p>
+            
+            <div className="grid gap-6 mb-6">
+              {integrationBenefits.map((benefit, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-bunshodo-light-gray/30">
+                  <div className="flex items-start">
+                    <div className="mr-3 mt-1">
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-bunshodo-blue mb-2">{benefit.title}</h3>
+                      <p className="text-bunshodo-medium-gray">{benefit.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="bg-bunshodo-light-gray/20 p-6 rounded-lg border border-bunshodo-light-gray/30">
+              <h3 className="text-lg font-semibold text-bunshodo-dark-blue mb-3">導入事例</h3>
+              <p className="text-bunshodo-dark-gray mb-3">
+                大手メーカーA社様では、印刷から配送までを文唱堂に一括依頼することで、年間コスト30%削減、リードタイム5日間短縮を実現しました。
+              </p>
+              <p className="text-bunshodo-blue font-medium">
+                「複数の業者との調整が不要になり、担当者の業務時間も週10時間削減できました。品質も向上し、クレームも大幅に減少しています。」
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-6 flex justify-end">
+            <Button 
+              onClick={() => setShowWhyUsDialog(false)}
+              className="bg-bunshodo-blue text-white"
+            >
+              閉じる
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

@@ -12,8 +12,19 @@ import { Toaster } from 'sonner';
 
 const Index: React.FC = () => {
   useEffect(() => {
-    // Set page title to emphasize text-based application
-    document.title = "文唱堂 - 印刷・物流の総合コスト削減サービス";
+    // Set page title and metadata to emphasize integrated approach benefits
+    document.title = "文唱堂 - 印刷・物流・倉庫を一括管理で30%コスト削減";
+    
+    // Add meta description for SEO
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', '印刷・物流・倉庫を一社で管理することでコスト削減、納期短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = '印刷・物流・倉庫を一社で管理することでコスト削減、納期短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。';
+      document.head.appendChild(meta);
+    }
     
     // Initialize intersection observer for reveal animations
     const observerOptions = {
