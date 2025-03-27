@@ -2,54 +2,82 @@
 import React from 'react';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
-import { Award, Clock, DollarSign, Leaf, Shield, BarChart4, Building2, Truck } from 'lucide-react';
+import { Award, Clock, DollarSign, Leaf, Shield, BarChart4, Building2, Truck, PenTool, CheckCircle2, Zap, Target } from 'lucide-react';
 
 const AdvantagesSection: React.FC = () => {
   const advantages = [
     {
       icon: <Clock className="h-12 w-12 text-bunshodo-blue" />,
       title: "一社完結だから早い！",
-      description: "印刷から発送まで、全て文唱堂にお任せください。複数の業者間での調整が不要なため、大幅な時間短縮が可能です。平均で納期が5日間短縮されます。"
+      description: "印刷から発送まで、全て文唱堂にお任せください。複数の業者間での調整が不要なため、大幅な時間短縮が可能です。従来のプロセスでは印刷完了後に物流会社への引き渡し・指示出しに2〜3日を要していましたが、文唱堂の一貫体制では即日出荷が可能になり、平均で納期が5日間短縮されます。",
+      benefits: ["印刷完了から物流への引き渡し時間ゼロ", "複数業者間の連絡調整時間削減", "緊急対応も一元管理で迅速化"]
     },
     {
       icon: <DollarSign className="h-12 w-12 text-bunshodo-blue" />,
       title: "コスト削減が可能！",
-      description: "複数の業者に依頼するより、断然お得です。印刷と物流を一括で行うことで、30%以上のコスト削減に成功した事例もあります。中間マージンや調整コストが不要になります。"
+      description: "複数の業者に依頼するより、断然お得です。印刷と物流を一括で行うことで、30%以上のコスト削減に成功した事例もあります。中間マージンのカット、輸送効率の最適化、梱包材の共通化、配送ルート効率化など、一貫体制だからこそ可能なコスト削減策を実現しています。",
+      benefits: ["印刷～物流間の中間マージンカット", "共通梱包材による資材費削減", "最適な配送ルート設計で輸送コスト削減"]
     },
     {
       icon: <Shield className="h-12 w-12 text-bunshodo-blue" />,
       title: "安全性が向上！",
-      description: "情報セキュリティの一元管理により、個人情報や機密情報の漏洩リスクが大幅に低減。ISO27001認証取得のセキュリティ体制で安心・安全を確保します。"
+      description: "情報セキュリティの一元管理により、個人情報や機密情報の漏洩リスクが大幅に低減。複数業者間でのデータ共有が不要なため、情報漏えいのリスクポイントを削減できます。ISO27001認証取得のセキュリティ体制で、データの加工から配送まで一貫した情報管理を実現しています。",
+      benefits: ["個人情報の管理ポイントを集約", "業者間データ受け渡しのリスク排除", "全工程ISO27001準拠の厳格管理"]
     },
     {
       icon: <Award className="h-12 w-12 text-bunshodo-blue" />,
       title: "高品質な印刷技術！",
-      description: "経済産業大臣賞受賞の確かな品質をお届けします。最新の設備と熟練のスタッフによる、一貫した品質管理体制が、ミスのない高品質な成果物を実現します。"
+      description: "経済産業大臣賞受賞の確かな品質をお届けします。最新の設備と熟練のスタッフによる、一貫した品質管理体制が、ミスのない高品質な成果物を実現します。印刷工程と物流工程の品質基準を統一することで、お客様の期待を上回るサービスをご提供します。",
+      benefits: ["印刷～梱包の一貫した品質基準", "大臣賞受賞技術の応用", "熟練オペレーターによる一貫管理"]
     }
   ];
   
   const additionalBenefits = [
     {
       icon: <Leaf className="h-8 w-8 text-bunshodo-green" />,
-      title: "環境に優しい",
-      description: "輸送距離の短縮や梱包材の最適化により、CO2排出量を従来比15%削減。"
+      title: "環境負荷を大幅削減",
+      description: "輸送距離の短縮や梱包材の最適化により、CO2排出量を従来比15%削減。物流センターと印刷工場の一体化でエネルギー効率も向上しています。",
+      data: "CO2排出量15%削減"
     },
     {
       icon: <BarChart4 className="h-8 w-8 text-bunshodo-green" />,
-      title: "データ一元管理",
-      description: "印刷から配送までのデータを一元管理し、リアルタイムな進捗確認と分析が可能。"
+      title: "データ分析で継続改善",
+      description: "印刷から配送までのデータを一元管理し、リアルタイムな進捗確認と分析が可能。これにより継続的な効率化とコスト削減を実現します。",
+      data: "業務効率20%向上"
     },
     {
       icon: <Building2 className="h-8 w-8 text-bunshodo-green" />,
-      title: "在庫スペース削減",
-      description: "文唱堂の倉庫を活用することで、オフィスや自社倉庫のスペースを有効活用。"
+      title: "スペース有効活用",
+      description: "文唱堂の倉庫を活用することで、オフィスや自社倉庫のスペースを本来の業務に集中できるよう有効活用できます。",
+      data: "オフィススペース25%削減"
     },
     {
       icon: <Truck className="h-8 w-8 text-bunshodo-green" />,
-      title: "柔軟な配送対応",
-      description: "一括配送から個別配送まで、あらゆる配送ニーズに柔軟に対応可能。"
+      title: "配送の最適化",
+      description: "一括配送から個別配送まで、あらゆる配送ニーズに柔軟に対応。在庫状況に合わせた最適なタイミングで配送計画を立案します。",
+      data: "配送効率30%向上"
     }
   ];
+  
+  // 統合システムの仕組み図の説明
+  const integrationExplanation = {
+    title: "なぜ統合システムが優れているのか？",
+    description: "従来の分業型システムと文唱堂の統合システムを比較すると、その効率性の違いは明らかです。",
+    traditionalSystem: [
+      "複数業者との契約・調整に時間とコストがかかる",
+      "業者間の情報伝達ミスによる品質低下リスク",
+      "データ共有による情報セキュリティリスク増大",
+      "工程ごとの納期管理が複雑化",
+      "トータルコストが見えづらく予算管理が難しい"
+    ],
+    integratedSystem: [
+      "窓口の一本化による管理工数の大幅削減",
+      "データ移行なしで品質一貫維持",
+      "情報管理ポイントの集約でセキュリティ強化",
+      "全工程の進捗リアルタイム可視化",
+      "トータルコストの透明化と最適化"
+    ]
+  };
   
   return (
     <section id="features" className="section-padding relative overflow-hidden bg-gradient-to-b from-white to-bunshodo-light-gray">
@@ -72,6 +100,61 @@ const AdvantagesSection: React.FC = () => {
           </p>
         </div>
         
+        {/* 比較図を追加 - 従来方式と統合方式 */}
+        <div className="mb-16 reveal">
+          <GlassPanelEffect
+            className="p-8 rounded-2xl"
+            intensity="medium"
+          >
+            <h3 className="text-2xl font-semibold mb-6 text-center">{integrationExplanation.title}</h3>
+            <p className="text-bunshodo-medium-gray text-center mb-8">{integrationExplanation.description}</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* 従来の分業システム */}
+              <div className="bg-white/70 p-6 rounded-xl border border-red-200">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 bg-red-100 rounded-full mr-3">
+                    <Zap className="h-6 w-6 text-red-500" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-red-500">従来の分業システム</h4>
+                </div>
+                <div className="space-y-3">
+                  {integrationExplanation.traditionalSystem.map((item, idx) => (
+                    <div key={idx} className="flex items-start">
+                      <span className="text-red-500 mr-2 mt-1">×</span>
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 bg-red-50 p-4 rounded-lg">
+                  <p className="text-red-700 font-medium">結果：コスト増大・納期遅延・品質バラつき</p>
+                </div>
+              </div>
+              
+              {/* 文唱堂の統合システム */}
+              <div className="bg-white/70 p-6 rounded-xl border border-green-200">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 bg-green-100 rounded-full mr-3">
+                    <Target className="h-6 w-6 text-green-500" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-green-500">文唱堂の統合システム</h4>
+                </div>
+                <div className="space-y-3">
+                  {integrationExplanation.integratedSystem.map((item, idx) => (
+                    <div key={idx} className="flex items-start">
+                      <span className="text-green-500 mr-2 mt-1">✓</span>
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 bg-green-50 p-4 rounded-lg">
+                  <p className="text-green-700 font-medium">結果：30%コスト削減・納期5日短縮・品質向上</p>
+                </div>
+              </div>
+            </div>
+          </GlassPanelEffect>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {advantages.map((advantage, index) => (
             <div key={index} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
@@ -83,7 +166,18 @@ const AdvantagesSection: React.FC = () => {
                   {advantage.icon}
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">{advantage.title}</h3>
-                <p className="text-bunshodo-medium-gray">{advantage.description}</p>
+                <p className="text-bunshodo-medium-gray mb-6">{advantage.description}</p>
+                {/* 具体的なメリットをリスト表示 */}
+                <div className="mt-auto">
+                  <div className="space-y-2">
+                    {advantage.benefits.map((benefit, i) => (
+                      <div key={i} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-bunshodo-green mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-bunshodo-dark-gray">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </GlassPanelEffect>
             </div>
           ))}
@@ -102,7 +196,12 @@ const AdvantagesSection: React.FC = () => {
                     {benefit.icon}
                   </div>
                   <h4 className="text-lg font-semibold mb-2">{benefit.title}</h4>
-                  <p className="text-bunshodo-medium-gray text-sm">{benefit.description}</p>
+                  <p className="text-bunshodo-medium-gray text-sm mb-3">{benefit.description}</p>
+                  <div className="mt-auto">
+                    <span className="inline-block px-3 py-1 bg-bunshodo-green/10 text-bunshodo-green rounded-full text-sm font-medium">
+                      {benefit.data}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -126,7 +225,7 @@ const AdvantagesSection: React.FC = () => {
                   経済産業大臣賞受賞の実績
                 </h3>
                 <p className="text-bunshodo-medium-gray mb-6">
-                  文唱堂印刷町屋総合工場は、第15回印刷産業環境優良工場表彰において「経済産業大臣賞」を受賞いたしました。印刷のプロフェッショナルとして培ってきた技術に加え、ハイテクノロジーを駆使し、時代に先駆けた環境配慮型の印刷環境づくりにも心血を注いでいます。この技術と環境への取り組みが、高品質かつ環境に優しい印刷物流サービスを提供する基盤となっています。
+                  文唱堂印刷町屋総合工場は、第15回印刷産業環境優良工場表彰において「経済産業大臣賞」を受賞いたしました。この受賞は単なる印刷技術だけでなく、環境に配慮した持続可能な生産体制と、印刷から物流までの一貫したプロセス最適化が高く評価されたものです。経済産業省からは「印刷業界における次世代のビジネスモデル」として注目されています。
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <span className="inline-block px-3 py-1 text-sm font-medium bg-bunshodo-green/10 text-bunshodo-green rounded-full">

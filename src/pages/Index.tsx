@@ -13,18 +13,36 @@ import { Toaster } from 'sonner';
 const Index: React.FC = () => {
   useEffect(() => {
     // Set page title and metadata to emphasize integrated approach benefits
-    document.title = "文唱堂 - 印刷・物流・倉庫を一括管理で30%コスト削減";
+    document.title = "文唱堂 - 印刷・物流・倉庫を一括管理で30%コスト削減、納期5日短縮";
     
     // Add meta description for SEO
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', '印刷・物流・倉庫を一社で管理することでコスト削減、納期短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。');
+      metaDescription.setAttribute('content', '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = '印刷・物流・倉庫を一社で管理することでコスト削減、納期短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。';
+      meta.content = '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。';
       document.head.appendChild(meta);
     }
+    
+    // Add more SEO-friendly meta tags
+    const addMetaTag = (name: string, content: string) => {
+      const existingTag = document.querySelector(`meta[name="${name}"]`);
+      if (existingTag) {
+        existingTag.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    // Add specific meta tags for better SEO
+    addMetaTag('keywords', '印刷,物流,倉庫管理,コスト削減,納期短縮,一貫管理,ワンストップ,文唱堂');
+    addMetaTag('robots', 'index, follow');
+    addMetaTag('author', '文唱堂印刷株式会社');
     
     // Initialize intersection observer for reveal animations
     const observerOptions = {
