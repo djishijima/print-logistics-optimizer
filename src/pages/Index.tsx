@@ -41,9 +41,20 @@ const Index: React.FC = () => {
     };
     
     // Add specific meta tags for better SEO
-    addMetaTag('keywords', '印刷,物流,倉庫管理,コスト削減,納期短縮,一貫管理,ワンストップ,文唱堂,経済産業省,NHK出版,日本銀行');
+    addMetaTag('keywords', '印刷,物流,倉庫管理,コスト削減,納期短縮,一貫管理,ワンストップ,文唱堂,経済産業省,NHK出版,日本銀行,経済産業大臣賞');
     addMetaTag('robots', 'index, follow');
     addMetaTag('author', '文唱堂印刷株式会社');
+    
+    // Add Open Graph meta tags for better social media sharing
+    addMetaTag('og:title', '文唱堂 - 印刷・物流・倉庫を一括管理でコスト30%削減');
+    addMetaTag('og:description', '印刷・物流・倉庫を一社で管理することでコスト30%削減、納期5日短縮、品質向上、安全性確保を実現。経済産業大臣賞受賞の技術で高品質な印刷と効率的な物流を提供します。');
+    addMetaTag('og:type', 'website');
+    addMetaTag('og:url', 'https://www.b-p.co.jp/');
+    
+    // Add Twitter Card meta tags
+    addMetaTag('twitter:card', 'summary_large_image');
+    addMetaTag('twitter:title', '文唱堂 - 印刷・物流・倉庫を一括管理でコスト30%削減');
+    addMetaTag('twitter:description', '印刷から物流、倉庫管理までワンストップサービスで業務効率化とコスト削減を実現。');
     
     // Initialize intersection observer for reveal animations
     const observerOptions = {
