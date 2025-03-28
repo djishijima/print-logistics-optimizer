@@ -14,11 +14,15 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       host: "localhost",
       port: 8080,
+      protocol: 'ws',
     },
     headers: {
       "X-Frame-Options": "DENY",
       "X-Content-Type-Options": "nosniff",
-      "Content-Security-Policy": "frame-ancestors 'none'",
+      "Content-Security-Policy": "frame-ancestors 'none'; default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.gpteng.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' ws: wss: https:; font-src 'self'; object-src 'none'; media-src 'self'; child-src 'self';",
+      "Referrer-Policy": "no-referrer-when-downgrade",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
     }
   },
   plugins: [
