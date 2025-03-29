@@ -1,17 +1,11 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
 import { ArrowDown, CheckCircle, ArrowRight } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import ConsultationForm from './ConsultationForm';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-  const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
-  const [showWhyUsDialog, setShowWhyUsDialog] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -126,7 +120,7 @@ const Hero: React.FC = () => {
           </div>
           
           <button 
-            onClick={() => setShowWhyUsDialog(true)}
+            onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
             className="flex items-center justify-center mx-auto text-bunshodo-blue hover:text-bunshodo-dark-blue transition-colors mb-6 group"
           >
             <span className="font-medium mr-2 text-lg">なぜ文唱堂の印刷×物流が選ばれるのか</span>
@@ -146,16 +140,16 @@ const Hero: React.FC = () => {
             size="lg" 
             className="shadow-lg text-lg py-6 px-8"
             glassMorphism
-            onClick={() => setShowConsultationForm(true)}
+            onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
           >
-            30分以内にお見積もり
+            無料相談
           </Button>
           
           <Button 
             size="lg" 
             variant="outline"
             className="shadow-sm text-lg py-6 px-8"
-            onClick={() => setShowCostAnalysisForm(true)}
+            onClick={() => window.open('https://form.typeform.com/to/SmxiiFs5', '_blank')}
           >
             印刷物流コスト診断
           </Button>
@@ -169,93 +163,6 @@ const Hero: React.FC = () => {
           <ArrowDown size={24} className="text-bunshodo-blue" />
         </a>
       </div>
-
-      {/* Consultation Form Dialog */}
-      <Dialog 
-        open={showConsultationForm} 
-        onOpenChange={setShowConsultationForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">無料相談・お見積りフォーム</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="consultation"
-            onSubmitSuccess={() => setShowConsultationForm(false)}
-            onCancel={() => setShowConsultationForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
-
-      {/* Cost Analysis Form Dialog */}
-      <Dialog 
-        open={showCostAnalysisForm} 
-        onOpenChange={setShowCostAnalysisForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="cost-analysis"
-            onSubmitSuccess={() => setShowCostAnalysisForm(false)}
-            onCancel={() => setShowCostAnalysisForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
-
-      {/* Why Us Dialog - 統合アプローチの説明 */}
-      <Dialog 
-        open={showWhyUsDialog} 
-        onOpenChange={setShowWhyUsDialog}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">なぜ文唱堂の印刷×物流が選ばれるのか</DialogTitle>
-          </DialogHeader>
-          
-          <div className="mt-4">
-            <p className="text-bunshodo-dark-gray mb-6">
-              印刷と物流、そして倉庫管理を一社で行うことには、多くのメリットがあります。文唱堂の統合アプローチがなぜ多くの企業に選ばれているのか、その理由をご説明します。
-            </p>
-            
-            <div className="grid gap-6 mb-6">
-              {integrationBenefits.map((benefit, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-bunshodo-light-gray/30">
-                  <div className="flex items-start">
-                    <div className="mr-3 mt-1">
-                      {benefit.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-bunshodo-blue mb-2">{benefit.title}</h3>
-                      <p className="text-bunshodo-medium-gray">{benefit.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="bg-bunshodo-light-gray/20 p-6 rounded-lg border border-bunshodo-light-gray/30">
-              <h3 className="text-lg font-semibold text-bunshodo-dark-blue mb-3">導入事例</h3>
-              <p className="text-bunshodo-dark-gray mb-3">
-                大手メーカーA社様では、印刷から配送までを文唱堂に一括依頼することで、年間コスト30%削減、リードタイム5日間短縮を実現しました。
-              </p>
-              <p className="text-bunshodo-blue font-medium">
-                「複数の業者との調整が不要になり、担当者の業務時間も週10時間削減できました。品質も向上し、クレームも大幅に減少しています。」
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-6 flex justify-end">
-            <Button 
-              onClick={() => setShowWhyUsDialog(false)}
-              className="bg-bunshodo-blue text-white"
-            >
-              閉じる
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };

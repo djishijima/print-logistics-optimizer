@@ -1,15 +1,9 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import GlassPanelEffect from './GlassPanelEffect';
 import { Button } from '@/components/ui/button';
 import { Clock, FileText, PhoneCall, Calculator, Upload } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import ConsultationForm from './ConsultationForm';
 
 const CTASection: React.FC = () => {
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-  const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
-  
   return (
     <section id="cta" className="section-padding relative overflow-hidden py-24">
       {/* Background gradient */}
@@ -75,7 +69,7 @@ const CTASection: React.FC = () => {
             <Button 
               size="lg" 
               className="bg-bunshodo-blue hover:bg-bunshodo-dark-blue text-white shadow-lg"
-              onClick={() => setShowConsultationForm(true)}
+              onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
             >
               <PhoneCall className="h-5 w-5 mr-2" />
               無料相談はこちら
@@ -85,7 +79,7 @@ const CTASection: React.FC = () => {
               size="lg" 
               variant="outline"
               className="border-bunshodo-blue text-bunshodo-blue hover:bg-bunshodo-blue/10 shadow-sm"
-              onClick={() => setShowCostAnalysisForm(true)}
+              onClick={() => window.open('https://form.typeform.com/to/SmxiiFs5', '_blank')}
             >
               <Calculator className="h-5 w-5 mr-2" />
               印刷物流コスト診断
@@ -93,40 +87,6 @@ const CTASection: React.FC = () => {
           </div>
         </GlassPanelEffect>
       </div>
-
-      {/* Consultation Form Dialog */}
-      <Dialog 
-        open={showConsultationForm} 
-        onOpenChange={setShowConsultationForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">無料相談フォーム</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="consultation"
-            onSubmitSuccess={() => setShowConsultationForm(false)}
-            onCancel={() => setShowConsultationForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
-
-      {/* Cost Analysis Form Dialog */}
-      <Dialog 
-        open={showCostAnalysisForm} 
-        onOpenChange={setShowCostAnalysisForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="cost-analysis"
-            onSubmitSuccess={() => setShowCostAnalysisForm(false)}
-            onCancel={() => setShowCostAnalysisForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

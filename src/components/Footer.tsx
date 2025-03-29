@@ -39,141 +39,82 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">サービス</h4>
+            <h4 className="text-lg font-semibold mb-4">会社概要</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  印刷サービス
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  物流サービス
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  在庫管理
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  デザイン制作
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  Webサービス
-                </a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-4">会社情報</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#about-us" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
+                <a href="https://b-p.co.jp/" target="_blank" rel="noopener noreferrer" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
                   <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
                   会社概要
                 </a>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold mb-4">お問い合わせ</h4>
+            <ul className="space-y-2">
               <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
+                <a href="https://form.typeform.com/to/xAJyZjnr" target="_blank" rel="noopener noreferrer" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
                   <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  SDGsへの取り組み
+                  無料相談
                 </a>
               </li>
               <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
+                <a href="https://form.typeform.com/to/SmxiiFs5" target="_blank" rel="noopener noreferrer" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
                   <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  採用情報
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  お問い合わせ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
-                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
-                  プライバシーポリシー
+                  印刷物流コスト診断
                 </a>
               </li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="text-lg font-semibold mb-4">お問い合わせ</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <Building className="h-5 w-5 text-bunshodo-blue mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-bunshodo-medium-gray">
-                  <strong className="block text-bunshodo-blue mb-1">本社</strong>
-                  〒101-0025 東京都千代田区神田佐久間町3-37
-                  <div className="mt-1">
-                    <div className="flex items-center mr-3 mb-1 text-sm">
-                      <Phone className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
-                      <span>03-3851-0111</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Printer className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
-                      <span>03-3861-1979</span>
-                    </div>
-                  </div>
-                </span>
+            <h4 className="text-lg font-semibold mb-4">環境への取り組み</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
+                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
+                  環境配慮型印刷
+                </a>
               </li>
-              <li className="flex items-start">
-                <Building className="h-5 w-5 text-bunshodo-blue mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-bunshodo-medium-gray">
-                  <strong className="block text-bunshodo-blue mb-1">町屋工場</strong>
-                  〒116-0001 東京都荒川区町屋8-22-10
-                  <div className="mt-1">
-                    <div className="flex items-center mr-3 mb-1 text-sm">
-                      <Phone className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
-                      <span>03-3819-2500</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Printer className="h-4 w-4 text-bunshodo-blue mr-1 flex-shrink-0" />
-                      <span>03-3819-2530</span>
-                    </div>
-                  </div>
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 text-bunshodo-blue mr-2 flex-shrink-0" />
-                <a 
-                  href="mailto:info@b-p.co.jp" 
-                  className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors"
-                >
-                  info@b-p.co.jp
+              <li>
+                <a href="#" className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors flex items-center">
+                  <span className="mr-2 w-1 h-1 rounded-full bg-bunshodo-blue inline-block"></span>
+                  環境負荷低減
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-bunshodo-blue/10 pt-8 mt-8">
+
+        <div className="border-t border-bunshodo-light-gray/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0 flex items-center">
               <span className="text-bunshodo-medium-gray text-sm">
-                © 2023 文唱堂印刷株式会社. All rights reserved.
+                2023 文唱堂印刷株式会社. All rights reserved.
               </span>
             </div>
             <div className="flex flex-wrap justify-center gap-3">
-              <span className="inline-flex items-center px-3 py-1 bg-bunshodo-green/10 text-bunshodo-green text-sm rounded-full">
-                <Leaf className="h-4 w-4 mr-1" /> 環境配慮型印刷
-              </span>
-              <span className="inline-flex items-center px-3 py-1 bg-bunshodo-blue/10 text-bunshodo-blue text-sm rounded-full">
-                <Award className="h-4 w-4 mr-1" /> 経済産業大臣賞
-              </span>
+              <a 
+                href="https://www.b-p.co.jp/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors"
+              >
+                <Globe className="h-5 w-5" />
+              </a>
+              <a 
+                href="mailto:info@b-p.co.jp" 
+                className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a 
+                href="tel:0338510111" 
+                className="text-bunshodo-medium-gray hover:text-bunshodo-blue transition-colors"
+              >
+                <Phone className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>

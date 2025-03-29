@@ -1,11 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import GlassPanelEffect from './GlassPanelEffect';
 import Button from './Button';
 import { Menu, X, Calculator } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import ConsultationForm from './ConsultationForm';
 
 interface NavbarProps {
   className?: string;
@@ -14,8 +12,6 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-  const [showCostAnalysisForm, setShowCostAnalysisForm] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -81,14 +77,14 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               <Button 
                 size="md"
                 variant="outline"
-                onClick={() => setShowCostAnalysisForm(true)}
+                onClick={() => window.open('https://form.typeform.com/to/SmxiiFs5', '_blank')}
                 icon={<Calculator size={16} />}
               >
                 コスト診断
               </Button>
               <Button 
                 size="md"
-                onClick={() => setShowConsultationForm(true)}
+                onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
               >
                 無料相談
               </Button>
@@ -138,7 +134,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 fullWidth
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  setShowCostAnalysisForm(true);
+                  window.open('https://form.typeform.com/to/SmxiiFs5', '_blank');
                 }}
               >
                 印刷物流コスト診断
@@ -148,7 +144,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 fullWidth
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  setShowConsultationForm(true);
+                  window.open('https://form.typeform.com/to/xAJyZjnr', '_blank');
                 }}
               >
                 無料相談
@@ -157,40 +153,6 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           </nav>
         </GlassPanelEffect>
       </div>
-
-      {/* Consultation Form Dialog */}
-      <Dialog 
-        open={showConsultationForm} 
-        onOpenChange={setShowConsultationForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">無料相談・お見積りフォーム</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="consultation"
-            onSubmitSuccess={() => setShowConsultationForm(false)}
-            onCancel={() => setShowConsultationForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
-
-      {/* Cost Analysis Form Dialog */}
-      <Dialog 
-        open={showCostAnalysisForm} 
-        onOpenChange={setShowCostAnalysisForm}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-bunshodo-blue">印刷物流コスト診断</DialogTitle>
-          </DialogHeader>
-          <ConsultationForm 
-            formType="cost-analysis"
-            onSubmitSuccess={() => setShowCostAnalysisForm(false)}
-            onCancel={() => setShowCostAnalysisForm(false)}
-          />
-        </DialogContent>
-      </Dialog>
     </header>
   );
 };
