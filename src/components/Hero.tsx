@@ -1,8 +1,9 @@
+
 import React, { useEffect, useRef } from 'react';
 import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
-import { ArrowDown, CheckCircle, ArrowRight } from 'lucide-react';
+import { ArrowDown, CheckCircle, ArrowRight, Leaf } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -77,13 +78,13 @@ const Hero: React.FC = () => {
       >
         <div className="mb-2">
           <span className="inline-block px-4 py-1.5 text-sm font-medium bg-bunshodo-blue/10 text-bunshodo-blue rounded-full mb-4 animate-fade-in backdrop-blur-sm border border-bunshodo-blue/20">
-            印刷＋物流＝文唱堂
+            <Leaf className="h-4 w-4 inline-block mr-1" /> SDGs目標達成を加速！環境特化型印刷フルフィルメント
           </span>
         </div>
         
         <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-10 tracking-tight">
           <AnimatedText
-            text="印刷、そして物流の現場を変える"
+            text="印刷から地球環境を守る、未来へつなぐ"
             as="span"
             className="block bg-gradient-to-r from-bunshodo-dark-blue via-bunshodo-blue to-bunshodo-green bg-clip-text text-transparent"
             animation="fade-in-up"
@@ -94,7 +95,7 @@ const Hero: React.FC = () => {
         {/* Glass panel removed, text size increased */}
         <div className="max-w-4xl mx-auto mb-12">
           <AnimatedText
-            text="印刷・物流をまとめてアウトソーシング。コスト削減、スピードアップ、環境貢献を実現します。"
+            text="環境配慮型印刷・物流をまとめてアウトソーシング。コスト削減、スピードアップ、SDGs達成に貢献します。"
             className="text-2xl md:text-3xl lg:text-4xl mb-8 text-bunshodo-dark-gray font-medium"
             animation="fade-in"
             delay={300}
@@ -103,19 +104,19 @@ const Hero: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
               <CheckCircle className="h-6 w-6 mr-2 inline-block" />
-              <span>納期短縮</span>
+              <span>CO2排出量削減</span>
             </div>
             <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
               <CheckCircle className="h-6 w-6 mr-2 inline-block" />
-              <span>コスト削減</span>
+              <span>資源有効活用</span>
             </div>
             <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
               <CheckCircle className="h-6 w-6 mr-2 inline-block" />
-              <span>品質向上</span>
+              <span>環境認証対応</span>
             </div>
             <div className="flex items-center text-bunshodo-green text-lg md:text-xl">
               <CheckCircle className="h-6 w-6 mr-2 inline-block" />
-              <span>環境負荷低減</span>
+              <span>SDGs目標達成</span>
             </div>
           </div>
           
@@ -123,12 +124,12 @@ const Hero: React.FC = () => {
             onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
             className="flex items-center justify-center mx-auto text-bunshodo-blue hover:text-bunshodo-dark-blue transition-colors mb-6 group"
           >
-            <span className="font-medium mr-2 text-lg">なぜ文唱堂の印刷×物流が選ばれるのか</span>
+            <span className="font-medium mr-2 text-lg">なぜ文唱堂の環境特化型印刷×物流が選ばれるのか</span>
             <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
           </button>
           
           <AnimatedText
-            text="Bunshodo Printing Company"
+            text="Environmentally Friendly Printing & Logistics"
             className="text-xl text-bunshodo-medium-gray"
             animation="fade-in"
             delay={500}
@@ -142,7 +143,7 @@ const Hero: React.FC = () => {
             glassMorphism
             onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
           >
-            無料相談
+            環境対応印刷の無料相談
           </Button>
           
           <Button 
@@ -151,7 +152,7 @@ const Hero: React.FC = () => {
             className="shadow-sm text-lg py-6 px-8"
             onClick={() => window.open('https://form.typeform.com/to/SmxiiFs5', '_blank')}
           >
-            印刷物流コスト診断
+            環境負荷&コスト診断
           </Button>
         </div>
       </div>

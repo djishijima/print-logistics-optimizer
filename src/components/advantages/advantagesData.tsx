@@ -1,8 +1,14 @@
 
 import React from 'react';
-import { Award, Clock, DollarSign, Leaf, Shield, BarChart4, Building2, Truck } from 'lucide-react';
+import { Award, Clock, DollarSign, Leaf, Shield, BarChart4, Building2, Truck, Recycle, Sprout } from 'lucide-react';
 
 export const advantages = [
+  {
+    icon: <Leaf className="h-12 w-12 text-bunshodo-green" />,
+    title: "環境に配慮した印刷技術",
+    description: "FSC認証用紙、植物油インキ、VOC削減技術など環境に配慮した印刷技術を採用。CO2排出量を従来の印刷と比較して最大30%削減し、SDGs目標達成に貢献します。印刷工程における水使用量も50%削減を実現しています。",
+    benefits: ["FSC認証紙・再生紙の使用", "植物油インキによる環境負荷低減", "印刷工程の水使用量50%削減"]
+  },
   {
     icon: <Clock className="h-12 w-12 text-bunshodo-blue" />,
     title: "一社完結だから早い！",
@@ -32,45 +38,57 @@ export const advantages = [
 export const additionalBenefits = [
   {
     icon: <Leaf className="h-8 w-8 text-bunshodo-green" />,
-    title: "環境負荷を大幅削減",
-    description: "輸送距離の短縮や梱包材の最適化により、CO2排出量を従来比15%削減。物流センターと印刷工場の一体化でエネルギー効率も向上しています。",
-    data: "CO2排出量15%削減"
+    title: "CO2排出量を大幅削減",
+    description: "輸送距離の短縮や梱包材の最適化により、CO2排出量を従来比最大50%削減。物流センターと印刷工場の一体化でエネルギー効率も向上しています。",
+    data: "CO2排出量50%削減"
+  },
+  {
+    icon: <Recycle className="h-8 w-8 text-bunshodo-green" />,
+    title: "再生可能資源の活用",
+    description: "FSC認証紙や再生紙、生分解性梱包材の使用など、資源循環型の印刷・物流体制を構築。廃棄物の削減とリサイクル率向上に貢献します。",
+    data: "リサイクル率95%"
+  },
+  {
+    icon: <Sprout className="h-8 w-8 text-bunshodo-green" />,
+    title: "SDGs目標達成に貢献",
+    description: "目標12「つくる責任 つかう責任」、目標13「気候変動に具体的な対策を」など、複数のSDGs目標達成に貢献するサービス設計。",
+    data: "SDGs 5目標に貢献"
   },
   {
     icon: <BarChart4 className="h-8 w-8 text-bunshodo-green" />,
-    title: "データ分析で継続改善",
-    description: "印刷から配送までのデータを一元管理し、リアルタイムな進捗確認と分析が可能。これにより継続的な効率化とコスト削減を実現します。",
-    data: "業務効率20%向上"
+    title: "環境負荷データ分析",
+    description: "印刷から配送までのCO2排出量をデータ化し、環境負荷の可視化と継続的な改善を実現。お客様のESG報告書作成にも活用できます。",
+    data: "データ分析で継続改善"
   },
   {
     icon: <Building2 className="h-8 w-8 text-bunshodo-green" />,
-    title: "スペース有効活用",
-    description: "文唱堂の倉庫を活用することで、オフィスや自社倉庫のスペースを本来の業務に集中できるよう有効活用できます。",
+    title: "環境配慮型倉庫",
+    description: "省エネ設備や再生可能エネルギーを導入した環境配慮型倉庫でのストック管理。オフィスや自社倉庫のスペース有効活用にも貢献します。",
     data: "オフィススペース25%削減"
   },
   {
     icon: <Truck className="h-8 w-8 text-bunshodo-green" />,
-    title: "配送の最適化",
-    description: "一括配送から個別配送まで、あらゆる配送ニーズに柔軟に対応。在庫状況に合わせた最適なタイミングで配送計画を立案します。",
+    title: "グリーン配送",
+    description: "電気自動車やハイブリッド車を活用し、最適配送ルートで環境負荷を低減。共同配送による配送効率化も実現しています。",
     data: "配送効率30%向上"
   }
 ];
 
 export const integrationExplanation = {
-  title: "何が違うサービスなのか？",
-  description: "通常の分業型サービスと文唱堂のワンストップサービスを比較すると、その効率性の違いは明らかです。",
+  title: "環境特化型印刷フルフィルメントとは？",
+  description: "従来の分業型サービスと文唱堂の環境特化型ワンストップサービスを比較すると、効率性と環境負荷低減効果の違いは明らかです。",
   traditionalSystem: [
     "印刷会社、運送会社、倉庫会社がそれぞれ別々の会社",
     "複数の会社との連絡調整に時間がかかる",
     "各社へのマージンが発生しコストが高くなる",
     "情報共有不足によるミスや納期遅延のリスク",
-    "印刷物がある場合のみのサービス提供"
+    "環境対策は各社バラバラで総合的な効果が低い"
   ],
   integratedSystem: [
-    "印刷・配送・保管を一社で完結",
+    "環境配慮型印刷・配送・保管を一社で完結",
     "ワンストップサービスで手続きが簡単",
     "中間マージンカットで30%のコスト削減",
-    "一貫した品質管理で高品質なサービス提供",
-    "印刷物がなくても配送・保管サービスの利用可能"
+    "一貫した環境管理でSDGs目標達成に貢献",
+    "環境負荷データの一元管理でESG報告書作成も容易"
   ]
 };
