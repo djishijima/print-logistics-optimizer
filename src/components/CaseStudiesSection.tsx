@@ -1,17 +1,13 @@
 import React from 'react';
-import GlassPanelEffect from './GlassPanelEffect';
-import { Building, ShoppingBag, FileText, CheckCircle, TrendingUp, Target, DollarSign, Clock } from 'lucide-react';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import { Building, ShoppingBag, FileText, DollarSign, Clock, Target, TrendingUp } from 'lucide-react';
+import CaseStudyCard from './case-studies/CaseStudyCard';
+import MetricsPanel from './case-studies/MetricsPanel';
+import ClientsSection from './case-studies/ClientsSection';
+import BenefitsCarousel from './case-studies/BenefitsCarousel';
+import { CaseStudy, Metric } from './case-studies/types';
 
 const CaseStudiesSection: React.FC = () => {
-  const caseStudies = [
+  const caseStudies: CaseStudy[] = [
     {
       icon: <Building className="h-10 w-10 text-bunshodo-blue" />,
       title: "大手メーカーA社様",
@@ -53,7 +49,7 @@ const CaseStudiesSection: React.FC = () => {
     }
   ];
   
-  const keyMetrics = [
+  const keyMetrics: Metric[] = [
     {
       icon: <DollarSign className="h-6 w-6 text-bunshodo-blue" />,
       metric: "30%",
@@ -110,6 +106,14 @@ const CaseStudiesSection: React.FC = () => {
     "洋泉社", "ダイヤモンド社"
   ];
   
+  const benefits = [
+    "印刷から発送まで一貫して対応するため、工程間の待機時間が発生せず納期が大幅に短縮されます",
+    "複数の業者間での調整や連絡が不要になり、担当者の業務負担が軽減されます",
+    "一括管理によるスケールメリットで、全体のコストを30%程度削減できます",
+    "品質管理を一元化することで、高い品質基準を維持できます",
+    "在庫の適正管理により、無駄な印刷物を減らし環境負荷を低減します"
+  ];
+  
   return (
     <section id="case-studies" className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -130,169 +134,17 @@ const CaseStudiesSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="mb-16 reveal">
-          <GlassPanelEffect
-            className="p-8 rounded-2xl"
-            intensity="light"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {keyMetrics.map((metric, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex items-center justify-center h-16 w-16 mx-auto rounded-full bg-bunshodo-blue/10 mb-4">
-                    {metric.icon}
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold text-bunshodo-blue mb-2">
-                    {metric.metric}
-                  </div>
-                  <h4 className="text-lg font-semibold mb-1">{metric.title}</h4>
-                  <p className="text-sm text-bunshodo-medium-gray">{metric.description}</p>
-                </div>
-              ))}
-            </div>
-          </GlassPanelEffect>
-        </div>
+        <MetricsPanel metrics={keyMetrics} />
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {caseStudies.map((caseStudy, index) => (
-            <div key={index} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
-              <GlassPanelEffect
-                className="p-8 h-full"
-                intensity="light"
-              >
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center mb-6">
-                    <div className="mr-4 p-3 bg-bunshodo-blue/10 rounded-xl">
-                      {caseStudy.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold">{caseStudy.title}</h3>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="text-sm font-medium text-bunshodo-medium-gray mb-2">課題</div>
-                    <p className="text-bunshodo-dark-gray">{caseStudy.challenge}</p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="text-sm font-medium text-bunshodo-medium-gray mb-2">解決策</div>
-                    <p className="text-bunshodo-dark-gray">{caseStudy.solution}</p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="text-sm font-medium text-bunshodo-medium-gray mb-2">成果</div>
-                    <ul className="space-y-2">
-                      {caseStudy.results.map((result, i) => (
-                        <li key={i} className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-bunshodo-green mr-2 flex-shrink-0 mt-0.5" />
-                          <span>{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <div className="bg-bunshodo-light-gray/30 p-4 rounded-lg border-l-4 border-bunshodo-blue">
-                      <p className="text-sm italic text-bunshodo-dark-gray mb-2">
-                        "{caseStudy.testimonial}"
-                      </p>
-                      <div className="text-xs font-medium text-bunshodo-blue">
-                        {caseStudy.roi}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </GlassPanelEffect>
-            </div>
+            <CaseStudyCard key={index} caseStudy={caseStudy} index={index} />
           ))}
         </div>
 
-        <div className="mb-16 reveal">
-          <GlassPanelEffect
-            className="p-8 md:p-12 rounded-2xl"
-            intensity="medium"
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold mb-4">お取引先の例</h3>
-              <p className="text-bunshodo-medium-gray max-w-3xl mx-auto">
-                大手企業から政府機関まで、100社以上の組織が文唱堂の印刷×物流×倉庫の統合ソリューションで成果を上げています。
-              </p>
-            </div>
+        <ClientsSection clients={majorClients} />
 
-            <div className="mb-10">
-              <img 
-                src="/lovable-uploads/ee9ea8f1-ec22-432a-9a1a-ccdde0199b8e.png" 
-                alt="主要取引先ロゴ" 
-                className="mx-auto max-w-full"
-              />
-            </div>
-
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-semibold mb-4">取引先一覧</h4>
-              <p className="text-bunshodo-medium-gray mb-6">
-                多くのお客様に信頼いただいております
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4 text-sm">
-              {majorClients.map((client, index) => (
-                <div key={index} className="py-2">
-                  <span className="text-bunshodo-dark-gray">{client}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 text-center text-sm text-bunshodo-medium-gray">
-              ※順不同、敬称略
-            </div>
-          </GlassPanelEffect>
-        </div>
-
-        <div className="mt-16 text-center reveal">
-          <GlassPanelEffect
-            className="p-8 md:p-12 max-w-4xl mx-auto"
-            intensity="medium"
-          >
-            <h3 className="text-2xl font-semibold mb-6">なぜ多くの企業に選ばれるのか</h3>
-            <p className="text-bunshodo-medium-gray mb-8">
-              印刷・物流・倉庫を一社で完結できる文唱堂は、分業型の従来方式に比べて大幅なコスト削減と納期短縮を実現します。
-              業界の垣根を越えた統合サービスだからこそ、無駄なく効率的な運用が可能となり、
-              経済産業大臣賞を受賞した品質と長年の信頼が多くの企業様に評価されています。
-            </p>
-            
-            <div className="mt-8">
-              <Carousel
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                className="w-full max-w-3xl mx-auto"
-              >
-                <CarouselContent>
-                  {[
-                    "印刷から発送まで一貫して対応するため、工程間の待機時間が発生せず納期が大幅に短縮されます",
-                    "複数の業者間での調整や連絡が不要になり、担当者の業務負担が軽減されます",
-                    "一括管理によるスケールメリットで、全体のコストを30%程度削減できます",
-                    "品質管理を一元化することで、高い品質基準を維持できます",
-                    "在庫の適正管理により、無駄な印刷物を減らし環境負荷を低減します"
-                  ].map((testimonial, index) => (
-                    <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex items-center justify-center p-6 h-[150px]">
-                            <p className="text-center text-bunshodo-dark-gray">
-                              {testimonial}
-                            </p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-0" />
-                <CarouselNext className="right-0" />
-              </Carousel>
-            </div>
-          </GlassPanelEffect>
-        </div>
+        <BenefitsCarousel benefits={benefits} />
       </div>
     </section>
   );
