@@ -4,6 +4,7 @@ import Button from './Button';
 import GlassPanelEffect from './GlassPanelEffect';
 import AnimatedText from './AnimatedText';
 import { ArrowDown, CheckCircle, ArrowRight, Leaf } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -52,6 +53,28 @@ const Hero: React.FC = () => {
       icon: <CheckCircle className="h-5 w-5 text-bunshodo-green" />
     }
   ];
+  
+  const handleButtonClick = (actionType: string) => {
+    // イベント追跡
+    console.log(`Hero Button clicked: ${actionType}`);
+    
+    // ここに実際のアナリティクス追跡コードを追加
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-952809033/conversion',
+        'event_category': 'Hero',
+        'event_label': actionType,
+      });
+    }
+    
+    if (actionType === 'consultation') {
+      window.open('https://form.typeform.com/to/xAJyZjnr', '_blank');
+      toast.success('環境対応印刷相談フォームを開きました');
+    } else if (actionType === 'cost-analysis') {
+      window.open('https://form.typeform.com/to/SmxiiFs5', '_blank');
+      toast.success('環境負荷＆コスト診断フォームを開きました');
+    }
+  };
   
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -121,7 +144,7 @@ const Hero: React.FC = () => {
           </div>
           
           <button 
-            onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
+            onClick={() => handleButtonClick('learn_more')}
             className="flex items-center justify-center mx-auto text-bunshodo-blue hover:text-bunshodo-dark-blue transition-colors mb-6 group"
           >
             <span className="font-medium mr-2 text-lg">なぜ文唱堂の環境特化型印刷×物流が選ばれるのか</span>
@@ -141,7 +164,7 @@ const Hero: React.FC = () => {
             size="lg" 
             className="shadow-lg text-lg py-6 px-8"
             glassMorphism
-            onClick={() => window.open('https://form.typeform.com/to/xAJyZjnr', '_blank')}
+            onClick={() => handleButtonClick('consultation')}
           >
             環境対応印刷の無料相談
           </Button>
@@ -150,7 +173,7 @@ const Hero: React.FC = () => {
             size="lg" 
             variant="outline"
             className="shadow-sm text-lg py-6 px-8"
-            onClick={() => window.open('https://form.typeform.com/to/SmxiiFs5', '_blank')}
+            onClick={() => handleButtonClick('cost-analysis')}
           >
             環境負荷&コスト診断
           </Button>

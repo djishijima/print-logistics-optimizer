@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,6 +28,34 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-0JXPSCHN89');
+      
+      // コンバージョントラッキングのためのイベントリスナーを設定
+      document.addEventListener('DOMContentLoaded', function() {
+        // フォーム送信イベントを追跡
+        const trackFormSubmission = function() {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-952809033/conversion',
+            'event_category': 'form',
+            'event_label': 'submitted'
+          });
+        };
+        
+        // ページ内の主要なリンクやボタンのクリックを追跡
+        const trackPageInteraction = function() {
+          const actionButtons = document.querySelectorAll('a[href*="form.typeform.com"], button');
+          actionButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+              gtag('event', 'interaction', {
+                'event_category': 'engagement',
+                'event_label': e.target.textContent || 'button_click'
+              });
+            });
+          });
+        };
+        
+        // イベント追跡を初期化
+        trackPageInteraction();
+      });
     </script>
     
     <!-- Google tag (gtag.js) for Google Ads conversion tracking -->
@@ -37,6 +65,22 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-952809033');
+    </script>
+    
+    <!-- コンバージョントラッキングのためのイベント定義 -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-952809033/conversion',
+            'event_callback': callback
+        });
+        return false;
+      }
     </script>
   </head>
 
