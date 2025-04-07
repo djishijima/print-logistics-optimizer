@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Building, ShoppingBag, FileText, DollarSign, Clock, Target, TrendingUp } from 'lucide-react';
 import CaseStudyCard from './case-studies/CaseStudyCard';
